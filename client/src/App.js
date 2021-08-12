@@ -1,4 +1,5 @@
 import Portal from './component/Portal';
+import Render from './component/Render'
 import Footer from './component/Footer';
 
 
@@ -6,7 +7,7 @@ import Footer from './component/Footer';
 function App() {
   return (
     <div className="">
-      <Portal />
+      <Render />
       <Footer />
     </div>
   );

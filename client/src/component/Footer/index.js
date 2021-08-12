@@ -10,34 +10,35 @@ function Footer() {
                 <a class="text-dark" href="https://github.com/Wsamuell/health-wealth" target='_blank' >Project Repository</a>
             </div>
             <div className='authors-footer'>
-                <div className="sm:w-2/3 text-center py-6">
-                    <p className=" font-bold mb-2">
+                <div className="text-center">
+                    <p className="">
                         Cade Ellsworth
                     </p>
-                    <div className='me-4 text-reset'>
+                    <div className=''>
                         <a href="https://github.com/EEzycade" target="_blank"> <img className='icon' src={require("../../assets/img/github.png").default} alt='github-icon' /></a>
                     </div>
                 </div>
-                <div className="sm:w-2/3 text-center py-6">
-                    <p className=" font-bold mb-2">
-                    Natasha Harrison
+                <div className="text-center">
+                    <p className="">
+                        Natasha Harrison
                     </p>
-                    <div className='me-4 text-reset'>
+                    <div className=''>
                         <a href="https://github.com/natasharrison" target="_blank"> <img className='icon' src={require("../../assets/img/github.png").default} alt='github-icon' /></a>
                     </div>
                 </div>
-                <div className="sm:w-2/3 text-center py-6">
-                    <p className=" font-bold mb-2">
+                <div className="text-center">
+                    <p className="">
                         Elias Saunders
                     </p>
-                    <div className='me-4 text-reset'>
+                    <div className=''>
                         <a href="https://github.com/eliassaunders" target="_blank"> <img className='icon' src={require("../../assets/img/github.png").default} alt='github-icon' /></a>
                     </div>
-                </div>                <div className="sm:w-2/3 text-center py-6">
-                    <p className=" font-bold mb-2">
+                </div>
+                <div className="text-center">
+                    <p className="">
                         Samuel Odubamowo
                     </p>
-                    <div className='me-4 text-reset'>
+                    <div className=''>
                         <a href="https://github.com/Wsamuell" target="_blank"> <img className='icon' src={require("../../assets/img/github.png").default} alt='github-icon' /></a>
                     </div>
                 </div>
