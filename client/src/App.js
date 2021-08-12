@@ -1,3 +1,5 @@
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Portal from './component/Portal';
 import Render from './component/Render'
 import Footer from './component/Footer';
@@ -7,8 +9,11 @@ import Footer from './component/Footer';
 function App() {
   return (
     <div className="">
-      <Render />
-      <Footer />
+      <Router>
+        <Render />
+        <Footer />
+      </Router>
+
     </div>
   );
 }
