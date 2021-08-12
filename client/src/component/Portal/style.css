@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Lobster&display=swap');
+.hero-img {    
+    max-width: 100%;
+    height: auto;
+
+}
+.portal {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.main {
+    display: flex;
+    justify-content: space-evenly;
+    position:absolute;
+    
+}
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+.health {
+    color: #ffb703;
+    text-shadow: 3px 3px #219ebc
+
+}
+.span-h { 
+    color: #fb8500;
+    font-size: 120px;
+}
+.wealth{
+    color: #fb8500;
+    margin-left: 50px;
+    text-shadow: 3px 3px #219ebc
+
+}
+.span-w { 
+    color: #ffb703;
+    font-size: 120px;
+}
+.span-plus { 
+    color: #8ecae6;
+    margin-left: 20px;
+    margin-top: 30px;
+    text-shadow: 3px 3px #219ebc
+}
+
+.app-name {
+    font-size: 90px ;
+    font-family: 'Lobster', cursive;
+}
+.welcome-forms {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    opacity: 0.9;
+    border-radius: 10px;
+}
+.sign-up-form {
+    display: none;
+}
+.sign-in-form {
+    background-color:#ffb7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: grey;
+    
+}
+.create-btn {
+    border-top: black;
+}
+.info-text {
+    color: white;
+    font-family: 'Courgette', cursive;
+    font-size: 50px;
+    align-items: center;
+}
