@@ -18,6 +18,13 @@ function Render() {
             default:
                 return <Portal />;
         }
+        if (currentPage === 'Portal') {
+            return (
+                <div>
+                    <div>{renderPage(currentPage)}</div>
+                </div>
+            )
+        }
     }
 
     return (
@@ -26,6 +33,7 @@ function Render() {
             <div>{renderPage(currentPage)}</div>
         </div>
     )
+
 
 }
 
