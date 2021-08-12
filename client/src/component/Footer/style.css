@@ -1,0 +1,9 @@
+.icon {
+    width: 10%;
+    /* height: 20%; */
+}
+.authors-footer {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
