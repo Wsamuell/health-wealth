@@ -12,21 +12,21 @@ function Nav() {
 
     return (
         <header>
-            <div className="container flex-row justify-space-between-lg justify-center align-center">
-                <Link to="/">
+            <div className="nav-bar">
+                <Link to="/" className='mini-logo'>
                     <img src={require('../../assets/img/banner-logo.jpg').default} alt="Health Wealth" className='health-logo'/>
                 </Link>
 
-                <nav className="text-center">
+                <nav className="nav-menu">
                     {Auth.loggedIn() ? (
                         <>
-                            <Link to="/profile"> My Profile </Link>
-                            <a href="/" onClick={logout}> Logout </a>
+                            <Link to="/profile" className='btn btn-info btn-lg'> My Profile </Link>
+                            <a href="/" className='btn btn-danger btn-lg' onClick={logout}> Logout </a>
                         </>
                     ) : (
                         <>
-                            <Link to="/login">Login</Link>
-                            <Link to="/signup">Signup</Link>
+                            <Link to="/login" className='btn btn-info btn-lg login-spc'>Login</Link>
+                            <Link to="/signup" className='btn btn-success btn-lg'>Signup</Link>
                         </>
                     )}
                 </nav>
