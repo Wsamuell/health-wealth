@@ -1,10 +1,34 @@
 import React from 'react';
 import Regiment from '../component/Regiment/index';
 import Recipes from '../component/Recipes/index';
+import FriendList from '../component/FriendList';
+  // const [addFriend] = useMutation(ADD_FRIEND);
 
-function Profile () {
+// const handleClick = async () => {
+//     try {
+//         await addFriend({
+//             variables: { id: user._id }
+//         });
+//     } catch (e) {
+//         console.error(e);
+//     }
+// };
+
+function Profile() {
     return (
         <div className="container">
+            {/* this needs to be added to a row */}
+            <div>
+                <h2>
+                    Viewing {userParam ? `${user.username}'s` : 'your'} profile.
+                </h2>
+
+                {userParam && (
+                    <button className="btn ml-auto" onClick={handleClick}>
+                        Add Friend
+                    </button>
+                )}
+            </div>
             <div className="row">
                 <div className="col-8 regiment">
                     <Regiment />
@@ -21,6 +45,13 @@ function Profile () {
                 <div className="col-4 recipes">
                     <Recipes />
                 </div>
+            </div>
+            <div className="col-12 col-lg-3 mb-3">
+                <FriendList
+                    username={user.username}
+                    friendCount={user.friendCount}
+                    friends={user.friends}
+                />
             </div>
         </div>
     )
