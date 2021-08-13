@@ -8,7 +8,7 @@ type User {
     password: String
     points: Int
     aboutMe: String
-    regiments: [Regiment]
+    regimens: [Goal]
     friends: [User]
 }
 
@@ -25,7 +25,7 @@ type Auth {
     user: User
   }
 
-type Regiment {
+type Goal {
     _id: ID
     day: String
     activity: String
@@ -44,15 +44,18 @@ type Query {
     me: User
     users: [User]
     user(username: String!): User
-    regiments(username: String!): [Regiment]
-    friends(username: String!): [User]
+    userGoals(userId: String!): [Goal]
+    userFriends(username: String!): [User]
+    allPosts: [Post]
 }
 
 type Mutation {
     login (email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addFriend(friendId: ID!): User
-    addRegiment(day: String!, activity: String!, hours: String!, user: ID!): User
+    addFriend(friendId: ID!, user: String!): User
+    addGoal(day: String!, activity: String!, hours: String!, userId: ID!): Goal
+    removeFriend(friendId: ID!): User
+    removeGoal(goalId: ID!): User
 }
 `;
 
