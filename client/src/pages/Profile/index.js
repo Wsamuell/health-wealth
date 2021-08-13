@@ -1,6 +1,6 @@
 import React from 'react';
-import Regiment from '../component/Regiment/index';
-import Recipes from '../component/Recipes/index';
+import Regiment from '../../component/Regiment';
+import Recipes from '../../component/Recipes';
 
 function Profile () {
     return (

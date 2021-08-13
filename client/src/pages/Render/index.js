@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Nav from '../Nav';
+import Nav from '../../component/Nav';
 import Profile from '../Profile';
 import Home from '../Home';
 import Portal from '../Portal'
