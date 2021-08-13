@@ -1,8 +1,6 @@
 import React from 'react';
-import Regiment from '../component/Regiment/index';
-import Recipes from '../component/Recipes/index';
-import FriendList from '../component/FriendList';
-  // const [addFriend] = useMutation(ADD_FRIEND);
+import Regiment from '../../component/Regiment';
+import Recipes from '../../component/Recipes';
 
 // const handleClick = async () => {
 //     try {
