@@ -31,10 +31,10 @@ const userSchema = new Schema(
             maxlength: 500
 
         },
-        regiments: [
+        regimens: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'Regiment'
+                ref: 'Goal'
             }
         ],
         friends: [

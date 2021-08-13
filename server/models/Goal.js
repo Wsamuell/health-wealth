@@ -1,6 +1,6 @@
 const { Schema, model} = require('mongoose')
 
-const regimentSchema = new Schema(
+const goalSchema = new Schema(
     {
         day: {
             type: String,
@@ -30,5 +30,5 @@ const regimentSchema = new Schema(
     },
 )
 
-const Regitment = model('Regiment', regimentSchema)
-module.exports = Regitment
+const Goal = model('Goal', goalSchema)
+module.exports = Goal
