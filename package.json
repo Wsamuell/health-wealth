@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/EEzycade/project-three#readme",
   "dependencies": {
+    "@apollo/client": "^3.4.7",
     "concurrently": "^6.2.1"
   }
 }

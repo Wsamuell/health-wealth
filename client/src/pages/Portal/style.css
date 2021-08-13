@@ -57,19 +57,6 @@
     opacity: 0.9;
     border-radius: 10px;
 }
-.sign-up-form {
-    display: none;
-}
-.sign-in-form {
-    background-color:#ffb7;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: grey;
-    
-}
-.create-btn {
-    border-top: black;
-}
 .info-text {
     color: white;
     font-family: 'Courgette', cursive;
