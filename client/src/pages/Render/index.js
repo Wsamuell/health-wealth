@@ -5,7 +5,7 @@ import Home from '../Home';
 import Portal from '../Portal'
 
 function Render() {
-    const [currentPage, setCurrentPage] = useState('Home');
+    const [currentPage, setCurrentPage] = useState('Portal');
 
     const renderPage = () => {
         switch (currentPage) {

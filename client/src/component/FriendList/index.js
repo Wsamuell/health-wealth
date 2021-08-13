@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../Footer/style.css'
+import './style.css'
 
 const FriendList = ({ friendCount, username, friends }) => {
   if (!friends || !friends.length) {

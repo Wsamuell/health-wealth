@@ -5,9 +5,9 @@ function Footer() {
 
     return (
         <footer className='bg-light text-center text-lg-start'>
-            <div class="text-center p-3">
+            <div className="text-center p-3">
                 © 2021 Copyright:
-                <a class="text-dark" href="https://github.com/Wsamuell/health-wealth" target='_blank' >Project Repository</a>
+                <a className="text-dark" href="https://github.com/Wsamuell/health-wealth" target='_blank' >Project Repository</a>
             </div>
             <div className='authors-footer'>
                 <div className="text-center">
