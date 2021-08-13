@@ -7,7 +7,12 @@ import Footer from './component/Footer';
 
 
 const httpLink = createHttpLink({
-  uri: '/graphql'
+  // for local
+  uri: 'http://localhost:3001/graphql'
+  
+// for production
+  // uri: '/graphql'
+
 });
 
 const authLink = setContext((_, { headers }) => {

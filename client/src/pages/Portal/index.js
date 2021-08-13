@@ -1,5 +1,4 @@
-import React from 'react';
-import SignIn from '../../forms/Sign-in'
+import React,{ useState } from 'react';
 import SignUp from '../../forms/Sign-up'
 
 import './style.css'
@@ -28,7 +27,6 @@ function Portal() {
                     </div>
                 </div>
                 <div className='welcome-forms'>
-                    <SignIn />
                     <SignUp />
 
                 </div>
