@@ -5,7 +5,7 @@ import Home from '../Home';
 import Portal from '../Portal'
 
 function Render() {
-    const [currentPage, setCurrentPage] = useState('Portal');
+    const [currentPage, setCurrentPage] = useState('Home');
 
     const renderPage = () => {
         switch (currentPage) {
@@ -18,13 +18,13 @@ function Render() {
             default:
                 return <Portal />;
         }
-        if (currentPage === 'Portal') {
-            return (
-                <div>
-                    <div>{renderPage(currentPage)}</div>
-                </div>
-            )
-        }
+    }
+    if (currentPage === 'Portal') {
+        return (
+            <div>
+                <div>{renderPage(currentPage)}</div>
+            </div>
+        )
     }
 
     return (

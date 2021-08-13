@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Lobster&display=swap');
+
 .health-logo {
-    width: 10%;
+    width: 150px;
+}
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #023047;
+}
+.nav-menu {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Lobster', cursive;
+    align-items: center;
+}
+.login-spc {
+    padding-right: 100px;
 }
