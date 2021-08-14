@@ -1,6 +1,7 @@
 import React from 'react';
 import Regiment from '../../component/Regiment';
 import Recipes from '../../component/Recipes';
+import FriendList from '../../component/FriendList';
 
 // const handleClick = async () => {
 //     try {
