@@ -136,7 +136,7 @@ const resolvers = {
             )
             return updatedUser;
         }
-
+        
     }
 }
 
