@@ -46,6 +46,10 @@ const resolvers = {
 
             return { token, user }
         },
+        removeUser: async (parent, {userId}) => {
+            const updatedUser = await User.findOneAndDelete({ _id: userId})
+            return updatedUser
+        },
         login: async (parent, {email, password}) => {
             const user = await User.findOne({ email });
 
@@ -64,15 +68,14 @@ const resolvers = {
         }, 
         addFriend: async (parent, {friendId}, context) => {
             if (context.user) {
-                const friend = await User.findById({ friendId })
-                console.log(friend)
-                await User.findOneAndUpdate(
-                    { _id: context.user._id },
-                    { $push: { friends: friend} },
-                    { new: true }
-                )
-                return friend
-            }
+                const updatedUser = await User.findOneAndUpdate(
+                  { _id: context.user._id },
+                  { $addToSet: { friends: friendId } },
+                  { new: true }
+                ).populate('friends');
+        
+                return updatedUser;
+              }
             throw new AuthenticationError('You need to be logged in!');
         },
         addGoal: async (parent, args, context) => {
@@ -106,7 +109,7 @@ const resolvers = {
         removeGoal: async (parent, {goalId}, context) => {
             if(context.user) {
                 await User.findOneAndUpdate(
-                    { _id: contex.user._id},
+                    { _id: context.user._id},
                     { $pull: {regimens: goalId}},
                     { new: true }
                 )
