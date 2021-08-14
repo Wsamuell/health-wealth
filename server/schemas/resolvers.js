@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Goal, Post } = require('../models');
+const { User, Goal, Post, Reaction } = require('../models');
 const { signToken } = require('../utils/auth')
 
 const resolvers = {
@@ -38,6 +38,7 @@ const resolvers = {
         allPosts: async () => {
             await Post.find() 
         }
+        
     },
     Mutation: {
         addUser: async (parent, args) => {
@@ -118,6 +119,24 @@ const resolvers = {
 
             throw new AuthenticationError('You need to be logged in!'); 
         },
+        addPoints: async (parent, {pointValue, userId}) => {
+            const updatedUser = await User.findByIdAndUpdate(
+                {_id: userId},
+                {$inc: {points: pointValue}},
+                {new: false}
+            )
+
+            return updatedUser
+        },
+        removePoints: async (parent, {pointValue, userId}) => {
+            const updatedUser = await User.findByIdAndUpdate(
+                { _id: userId },
+                { $inc: {points: pointValue}},
+                { new: false }
+            )
+            return updatedUser;
+        }
+
     }
 }
 

@@ -25,6 +25,9 @@ const userSchema = new Schema(
             minlength: 0,
             maxlength: false
         },
+        icon: {
+            type: String,
+        },
         aboutMe: {
             type: String,
             minlength: 0,

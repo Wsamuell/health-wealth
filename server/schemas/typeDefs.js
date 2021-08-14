@@ -57,6 +57,9 @@ type Mutation {
     addGoal(day: String!, activity: String!, hours: String!, userId: ID!): Goal
     removeFriend(friendId: ID!): User
     removeGoal(goalId: ID!): User
+    addPoints(pointValue: Int!, userId: ID!): User
+    removePoints(pointValue: Int!, userId: ID!): User
+    changeIcon(iconName: String!): User
 }
 `;
 
