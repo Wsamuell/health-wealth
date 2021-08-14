@@ -28,7 +28,7 @@ const resolvers = {
                 .populate('regimens');
         },
         userGoals: async (parent, { userId }) => {
-            const goal = goal.find({ userId })
+            const goal = Goal.find({ userId })
             return goal;
         },
         userFriends: async (parent, { username }) => {
@@ -62,13 +62,13 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         }, 
-        addFriend: async (parent, {friendId, user}, context) => {
+        addFriend: async (parent, {friendId}, context) => {
             if (context.user) {
-                const friend = User.findOne({friendId})
-
+                const friend = await User.findById({ friendId })
+                console.log(friend)
                 await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $push: { friends: friend._id} },
+                    { $push: { friends: friend} },
                     { new: true }
                 )
                 return friend
