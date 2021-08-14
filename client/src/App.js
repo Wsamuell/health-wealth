@@ -2,7 +2,6 @@ import React from 'react';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Render from './pages/Render'
 import Footer from './component/Footer';
 import Nav from './component/Nav';
 import Home from './pages/Home';
@@ -49,12 +48,29 @@ function App() {
             <Nav />
           )}
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/home" component={Home} />
+            <Route exact path="/">
+              {Auth.loggedIn() ? (
+                <Home />
+              ) : (
+                <Portal />
+              )}
+            </Route>
+            <Route exact path="/home">
+              {Auth.loggedIn() ? (
+                <Home />
+              ) : (
+                <Portal />
+              )}
+            </Route>
             <Route exact path="/login" component={Portal} />
             <Route exact path="/signup" component={Portal} />
-            <Route exact path="/profile" component={Profile} />
-
+            <Route exact path="/profile">
+              {Auth.loggedIn() ? (
+                <Profile />
+              ) : (
+                <Portal />
+              )}
+            </Route>
           </Switch>
           <Footer />
         </div>
