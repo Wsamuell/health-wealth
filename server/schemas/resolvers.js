@@ -28,7 +28,7 @@ const resolvers = {
                 .populate('regimens');
         },
         userGoals: async (parent, { userId }) => {
-            const goal = goal.find({ userId })
+            const goal = Goal.find({ userId })
             return goal;
         },
         userFriends: async (parent, { username }) => {
@@ -44,6 +44,10 @@ const resolvers = {
             const user = await User.create(args);
             const token = signToken(user);
             return { token, user };
+        },
+        removeUser: async (parent, {userId}) => {
+            const updatedUser = await User.findOneAndDelete({ _id: userId})
+            return updatedUser
         },
         login: async (parent, {email, password}) => {
             const user = await User.findOne({ email });
@@ -61,17 +65,16 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         }, 
-        addFriend: async (parent, {friendId, user}, context) => {
+        addFriend: async (parent, {friendId}, context) => {
             if (context.user) {
-                const friend = User.findOne({friendId})
-
-                await User.findOneAndUpdate(
-                    { _id: context.user._id },
-                    { $push: { friends: friend._id} },
-                    { new: true }
-                )
-                return friend
-            }
+                const updatedUser = await User.findOneAndUpdate(
+                  { _id: context.user._id },
+                  { $addToSet: { friends: friendId } },
+                  { new: true }
+                ).populate('friends');
+        
+                return updatedUser;
+              }
             throw new AuthenticationError('You need to be logged in!');
         },
         addGoal: async (parent, args, context) => {

@@ -44,7 +44,7 @@ type Query {
     me: User
     users: [User]
     user(username: String!): User
-    userGoals(userId: String!): [Goal]
+    userGoals(userId: ID!): [Goal]
     userFriends(username: String!): [User]
     allPosts: [Post]
 }
@@ -52,7 +52,8 @@ type Query {
 type Mutation {
     login (email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addFriend(friendId: ID!, user: String!): User
+    removeUser(userId: ID!): User
+    addFriend(friendId: ID!): User
     addGoal(day: String!, activity: String!, hours: String!, userId: ID!): Goal
     removeFriend(friendId: ID!): User
     removeGoal(goalId: ID!): User
