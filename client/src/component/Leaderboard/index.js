@@ -13,7 +13,7 @@ function Leaderboard() {
 
     return (
         <div>
-            <Table striped bordered condensed hover className="colorBlack">
+            <table>
             <h1>Leaderboard</h1>
             <thead>
                 <tr>
@@ -35,7 +35,7 @@ function Leaderboard() {
             )
             )}
             </tbody>
-            </Table>
+            </table>
         </div>
     )
 }
