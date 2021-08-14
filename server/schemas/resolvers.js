@@ -105,7 +105,7 @@ const resolvers = {
         removeGoal: async (parent, {goalId}, context) => {
             if(context.user) {
                 await User.findOneAndUpdate(
-                    { _id: contex.user._id},
+                    { _id: context.user._id},
                     { $pull: {regimens: goalId}},
                     { new: true }
                 )
