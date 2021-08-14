@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER, } from '../../utils/mutations'
 import Auth from '../../utils/auth';
-import SignIn from '../Sign-in';
-import { Modal } from 'react-bootstrap';
 import './style.css'
 
 
@@ -36,13 +34,7 @@ function SignUp() {
         });
     }
 
-    const [showModal, setShowModal] = useState(false);
-
-    const handleClose = () => setShowModal(false);
-    const handleShow = () => setShowModal(true);
-
     return (
-        <>
             <div>
                 <form className='sign-up-form' onSubmit={handleFormSubmit}>
                     <p>Sign Me Up!</p>
@@ -87,21 +79,11 @@ function SignUp() {
                     type="submit" 
                     className="form-control btn btn-success"
                     disabled={!(userFormData.email && userFormData.password && userFormData.username)}
-
                     >Sign Up</button>
-                    <br />
-                    <br />
-                    <button type="button" className="form-control btn btn-primary open-modal" onClick={handleShow}>I Already have an account </button>
-
 
                 </form>
                 {error && <div> Something Went Wrong </div>}
             </div>
-
-            <Modal show={showModal} onHide={() => setShowModal(false)} >
-                <SignIn handleModalClose={() => setShowModal(false)} />
-            </Modal>
-        </>
     )
 }
 

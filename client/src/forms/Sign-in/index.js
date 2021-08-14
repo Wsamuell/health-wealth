@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { ADD_USER, LOGIN_USER } from '../../utils/mutations'
+import { LOGIN_USER } from '../../utils/mutations'
 import Auth from '../../utils/auth';
+import { Modal } from 'react-bootstrap';
+import SignUp from '../Sign-up'
+
 import './style.css'
 
 function SignIn() {
@@ -16,61 +19,73 @@ function SignIn() {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-    
+
         try {
-            const { data } = await loginUser({ 
-              variables: { ...userFormData }
+            const { data } = await loginUser({
+                variables: { ...userFormData }
             });
             console.log(data)
-      
+
             Auth.login(data.login.token);
-      
-          } catch (err) {
+
+        } catch (err) {
             console.error(err);
-          }
-      
-          setUserFormData({
+        }
+
+        setUserFormData({
             username: '',
             email: '',
             password: '',
-          });
-    
+        });
+
     };
 
+    const [showModal, setShowModal] = useState(false);
+
+    const handleClose = () => setShowModal(false);
+    const handleShow = () => setShowModal(true);
+
     return (
-        <div className='sign-in-modal'>
-            <form className='sign-in-form' onSubmit={handleFormSubmit}>
-                <div className="mb-3">
-                    <input
-                     type="email"
-                      className="form-control"
-                      placeholder='Your email'
-                      name='email'
-                      onChange={handleInputChange}
-                      value={userFormData.email}
-                      required   
-                     />
-                </div>
-                <div className="mb-3">
-                    <input 
-                    type="password" 
-                    className="form-control" 
-                    placeholder="********" 
-                    name='password'
-                    onChange={handleInputChange}
-                    value={userFormData.password}
-        
-                    />
-                </div>
-                <div className='mb-3'>
-                    <button 
-                    type="submit" 
-                    className=" form-control btn btn-primary"
-                    disabled={!(userFormData.email && userFormData.password)}
-                    >Log In</button>
-                </div>
-            </form>
-        </div>
+        <>
+            <div className='sign-in-modal'>
+                <form className='sign-in-form' onSubmit={handleFormSubmit}>
+                    <div className="mb-3">
+                        <input
+                            type="email"
+                            className="form-control"
+                            placeholder='Your email'
+                            name='email'
+                            onChange={handleInputChange}
+                            value={userFormData.email}
+                            required
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <input
+                            type="password"
+                            className="form-control"
+                            placeholder="********"
+                            name='password'
+                            onChange={handleInputChange}
+                            value={userFormData.password}
+
+                        />
+                    </div>
+                    <div className='mb-3'>
+                        <button
+                            type="submit"
+                            className=" form-control btn btn-success"
+                            disabled={!(userFormData.email && userFormData.password)}
+                        >Log In</button>
+                    </div>
+                    <button type="button" className="form-control btn btn-primary open-modal" onClick={handleShow}>Sign Up</button>
+
+                </form>
+            </div>
+            <Modal show={showModal} onHide={() => setShowModal(false)} >
+                <SignUp handleModalClose={() => setShowModal(false)} />
+            </Modal>
+        </>
     )
 }
 
