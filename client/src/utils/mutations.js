@@ -26,10 +26,10 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_GOAL = gql`
-mutation addGoal($day: String!, $activity: String!, $hours: String!, $userId: ID!) {
+mutation addGoal($day: String!, $activity: String!, $hours: String! $userId: ID!) {
     addGoal(day: $day, activity: $activity, hours: $hours, userId: $userId) {
-        day
-          activity
+      day
+      activity
       hours
       _id
     }
