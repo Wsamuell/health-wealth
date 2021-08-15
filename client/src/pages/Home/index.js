@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ME, QUERY_USERS } from '../../utils/queries';
 // import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
-import { FormControl, InputGroup, Button, Jumbotron, Container, Form, Col } from 'react-bootstrap'
+import { FormControl, Button, Form } from 'react-bootstrap'
 // import Leaderboard from '../../component/Leaderboard';
 import './style.css';
 
