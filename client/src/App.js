@@ -71,6 +71,13 @@ function App() {
                 <Portal />
               )}
             </Route>
+            <Route exact path="/profile/:username?">
+            {Auth.loggedIn() ? (
+                <Profile />
+              ) : (
+                <Portal />
+              )}
+            </Route>
           </Switch>
           <Footer />
         </div>

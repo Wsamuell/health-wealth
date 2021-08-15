@@ -7,42 +7,49 @@ import { FormControl, Button, Form } from 'react-bootstrap'
 // import Leaderboard from '../../component/Leaderboard';
 import './style.css';
 
+const useForceUpdate = () => {
+    const set = useState(0)[1]
+    // console.log('state updated')
+    return () => set((s) => s+1)
+}
 
+let filterUsers = []
+let userLink;
 
 const Home = props => {
     const [searchUser, setSearchUser] = useState('')
-
-    const { loading, data, error } = useQuery(QUERY_USERS);
+    const { loading, data } = useQuery(QUERY_USERS);
     const { data: myData } = useQuery(GET_ME);
     const allUsers = data?.users || []
 
 
 
-
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
+        if (loading) {
+            return <div>Loading...</div>;
+          }
         if (!searchUser) {
             return false;
         }
         try {
-            const filterUsers = allUsers.filter((users) => {
+            filterUsers = allUsers.filter((users) => {
                 if (users.username === `${searchUser}`) {
                     return users
                 }
-
-
             })
-            console.log(filterUsers[0].username)
-
+            // console.log(filterUsers[0])
             setSearchUser(filterUsers);
             setSearchUser('');
+            userLink = <Link to={`/profile/${filterUsers[0].username}`}>{filterUsers[0].username}</Link>
+    
         } catch (err) {
-            console.log(err)
+            userLink = <div>No User found</div>
             // console.log('no user found');
         }
-
     }
+
+    
 
 
     return (
@@ -60,7 +67,7 @@ const Home = props => {
                     Search
                 </Button>
             </Form>
-            {/* <Link>{[filterUsers[0]].username}</Link> */}
+            {userLink}
             {/* <Leaderboard /> */}
         </div>
     )
