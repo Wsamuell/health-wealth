@@ -1,17 +1,22 @@
 import gql from 'graphql-tag';
 
-export const QUERY_ME = gql`
-query {
+export const GET_ME = gql`
+query me{
     me {
       username
       email
       _id
+      regimens {
+        day
+        activity
+        hours
+      }
     } 
 }
 `;
 
 export const QUERY_USERS = gql`
-query {
+query users{
     users {
       username
       email
@@ -31,7 +36,7 @@ query {
 `;
 
 export const QUERY_USER = gql`
-query($username:String!) {
+query user($username:String!) {
     user (username: $username){
       username
       email
