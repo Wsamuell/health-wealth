@@ -6,7 +6,6 @@ import Auth from '../../utils/auth';
 import { FormControl, Button, Form } from 'react-bootstrap'
 // import Leaderboard from '../../component/Leaderboard';
 import './style.css';
-
 function Home() {
     const [searchUser, setSearchUser] = useState('')
     const { loading, data, error } = useQuery(QUERY_USERS);
