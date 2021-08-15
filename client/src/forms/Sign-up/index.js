@@ -43,7 +43,6 @@ function SignUp() {
                         <input
                             type="Username"
                             className="form-control"
-                            type='text'
                             placeholder='Username'
                             name='username'
                             onChange={handleInputChange}
@@ -55,7 +54,6 @@ function SignUp() {
                         <input
                             type="email"
                             className="form-control"
-                            type='email'
                             placeholder='Email Address'
                             name='email'
                             onChange={handleInputChange}
@@ -67,7 +65,6 @@ function SignUp() {
                         <input
                             type="password"
                             className="form-control"
-                            type='password'
                             placeholder='*********'
                             name='password'
                             onChange={handleInputChange}
