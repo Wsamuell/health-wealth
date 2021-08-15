@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_ME, QUERY_USERS } from '../../utils/queries';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import { FormControl, Button, Form } from 'react-bootstrap'
 // import Leaderboard from '../../component/Leaderboard';
 import './style.css';
-function Home() {
+
+
+
+const Home = props => {
     const [searchUser, setSearchUser] = useState('')
+
     const { loading, data, error } = useQuery(QUERY_USERS);
     const { data: myData } = useQuery(GET_ME);
-    const allUsers = data?.users;
-    const loggedIn = Auth.loggedIn();
+    const allUsers = data?.users || []
 
-    console.log(allUsers)
+
+
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -22,32 +26,24 @@ function Home() {
             return false;
         }
         try {
-            const response = await allUsers(searchUser);
-            if (!response.ok) {
-                throw new Error('Something went wrong, please try again');
-            }
-            const { usersSearched } = await response.json();
-            const searchResult = usersSearched.map((user) => ({
-                username: [0].user.username
-            }))
-            console.log(usersSearched)
-            setSearchUser(searchResult);
+            const filterUsers = allUsers.filter((users) => {
+                if (users.username === `${searchUser}`) {
+                    return users
+                }
+
+
+            })
+            console.log(filterUsers[0].username)
+
+            setSearchUser(filterUsers);
             setSearchUser('');
         } catch (err) {
-            console.log(err);
+            console.log(err)
+            // console.log('no user found');
         }
+
     }
 
-    // const filterUsers = allUsers.filter((users) => {
-    //     if (users.username === 'test1') {
-    //         return users
-    //     }
-    //      else if (!allUsers.filter){
-    //         return <div>No Users Found</div>
-    //     }
-
-    // })
-    // console.log(filterUsers)
 
     return (
         <div className=''>
@@ -64,10 +60,11 @@ function Home() {
                     Search
                 </Button>
             </Form>
-
+            {/* <Link>{[filterUsers[0]].username}</Link> */}
             {/* <Leaderboard /> */}
         </div>
     )
+
 }
 
 export default Home;
