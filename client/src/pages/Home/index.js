@@ -1,53 +1,56 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_ME, QUERY_USERS } from '../../utils/queries';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import { FormControl, Button, Form } from 'react-bootstrap'
 // import Leaderboard from '../../component/Leaderboard';
 import './style.css';
-function Home() {
-    const [searchUser, setSearchUser] = useState('')
-    const { loading, data, error } = useQuery(QUERY_USERS);
-    const { data: myData } = useQuery(GET_ME);
-    const allUsers = data?.users;
-    const loggedIn = Auth.loggedIn();
 
-    console.log(allUsers)
+const useForceUpdate = () => {
+    const set = useState(0)[1]
+    // console.log('state updated')
+    return () => set((s) => s+1)
+}
+
+let filterUsers = []
+let userLink;
+
+const Home = props => {
+    const [searchUser, setSearchUser] = useState('')
+    const { loading, data } = useQuery(QUERY_USERS);
+    const { data: myData } = useQuery(GET_ME);
+    const allUsers = data?.users || []
+
+
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
+        if (loading) {
+            return <div>Loading...</div>;
+          }
         if (!searchUser) {
             return false;
         }
         try {
-            const response = await allUsers(searchUser);
-            if (!response.ok) {
-                throw new Error('Something went wrong, please try again');
-            }
-            const { usersSearched } = await response.json();
-            const searchResult = usersSearched.map((user) => ({
-                username: [0].user.username
-            }))
-            console.log(usersSearched)
-            setSearchUser(searchResult);
+            filterUsers = allUsers.filter((users) => {
+                if (users.username === `${searchUser}`) {
+                    return users
+                }
+            })
+            // console.log(filterUsers[0])
+            setSearchUser(filterUsers);
             setSearchUser('');
+            userLink = <Link to={`/profile/${filterUsers[0].username}`}>{filterUsers[0].username}</Link>
+    
         } catch (err) {
-            console.log(err);
+            userLink = <div>No User found</div>
+            // console.log('no user found');
         }
     }
 
-    // const filterUsers = allUsers.filter((users) => {
-    //     if (users.username === 'test1') {
-    //         return users
-    //     }
-    //      else if (!allUsers.filter){
-    //         return <div>No Users Found</div>
-    //     }
+    
 
-    // })
-    // console.log(filterUsers)
 
     return (
         <div className=''>
@@ -64,10 +67,11 @@ function Home() {
                     Search
                 </Button>
             </Form>
-
+            {userLink}
             {/* <Leaderboard /> */}
         </div>
     )
+
 }
 
 export default Home;
