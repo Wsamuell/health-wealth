@@ -9,6 +9,8 @@ import { useMutation } from '@apollo/client';
 import { Modal } from 'react-bootstrap';
 import context from 'react-bootstrap/esm/AccordionContext';
 
+
+
 function Profile() {
     const { loading, data } = useQuery(GET_ME);
     const [addGoal, {error}] = useMutation(ADD_GOAL)
