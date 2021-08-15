@@ -11,12 +11,11 @@ import context from 'react-bootstrap/esm/AccordionContext';
 
 
 
-function Profile() {
+function Profile(props) {
     const { loading, data } = useQuery(GET_ME);
     const [addGoal, {error}] = useMutation(ADD_GOAL)
     const [goalFormData, setGoalFormData] = useState({ day: '', activity: '', hours: '' });
     const user = data?.me || [];
-
 
     const [showModal, setShowModal] = useState(false)
     const handleClose = () => setShowModal(false);
