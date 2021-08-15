@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_ME, QUERY_USERS } from '../../utils/queries';
+import { GET_ME, QUERY_USERS } from '../../utils/queries';
 // import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import { FormControl, Button, Form } from 'react-bootstrap'
@@ -9,7 +9,7 @@ import './style.css';
 function Home() {
     const [searchUser, setSearchUser] = useState('')
     const { loading, data, error } = useQuery(QUERY_USERS);
-    const { data: myData } = useQuery(QUERY_ME);
+    const { data: myData } = useQuery(GET_ME);
     const allUsers = data?.users;
     const loggedIn = Auth.loggedIn();
 
