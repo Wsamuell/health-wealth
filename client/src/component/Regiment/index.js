@@ -1,66 +1,68 @@
 import React from 'react';
+import Goal from '../Goal';
 
 
-function Regiment({ regimens }) {
+const Regiment = ({regimens}) => {
+    console.log(regimens)
     if(!regimens) {
-        return <div></div>
+        return <div>No Reg</div>
     }
-
-    return (
+     console.log(regimens)
+     return (
         <div>
             <div className="day" id="sunday">
                 <h2>Sunday</h2>
-                {regimens.forEach(goal => {
+                {regimens.map(goal => {
                     if(goal.day === "Sunday") {
-                        <div>{/*goal component*/}</div>
+                       return <Goal key="1" goal={goal}></Goal>
                     } 
                 })}
             </div>
             <div className="day" id="monday">
                 <h2>Monday</h2>
-                {regimens.forEach(goal => {
+                {regimens.map(goal => {
                     if(goal.day === "Monday") {
-                        <div>{/*goal component*/}</div>
+                        return <Goal key="2" goal={goal}></Goal>
                     } 
                 })}
             </div>
             <div className="day" id="tuesday">
                 <h2>Tuesday</h2>
-                {regimens.forEach(goal => {
+                {regimens.map(goal => {
                     if(goal.day === "Tuesday") {
-                        <div>{/*goal component*/}</div>
+                       return <Goal key="3" goal={goal}></Goal>
                     } 
                 })}
             </div>
             <div className="day" id="wednesday">
                 <h2>Wednesday</h2>
-                {regimens.forEach(goal => {
+                {regimens.map(goal => {
                     if(goal.day === "Wednesday") {
-                        <div>{/*goal component*/}</div>
+                        return <Goal key="4" goal={goal}></Goal>
                     } 
                 })}
             </div>
             <div className="day" id="thursday">
                 <h2>Thursday</h2>
-                {regimens.forEach(goal => {
+                {regimens.map(goal => {
                     if(goal.day === "Thursday") {
-                        <div>{/*goal component*/}</div>
+                       return <Goal key="5" goal={goal}></Goal>
                     } 
                 })}
             </div>
             <div className="day" id="friday">
                 <h2>Friday</h2>
-                {regimens.forEach(goal => {
+                {regimens.map(goal => {
                     if(goal.day === "Friday") {
-                        <div>{/*goal component*/}</div>
+                       return <Goal key="6" goal={goal}></Goal>
                     } 
                 })}
             </div>
             <div className="day" id="saturday">
                 <h2>Saturday</h2>
-                {regimens.forEach(goal => {
+                {regimens.map(goal => {
                     if(goal.day === "Saturday") {
-                        <div>{/*goal component*/}</div>
+                       return <Goal key="7" goal={goal}></Goal>
                     } 
                 })}
             </div>
