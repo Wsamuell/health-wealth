@@ -7,11 +7,6 @@ import { FormControl, Button, Form } from 'react-bootstrap'
 // import Leaderboard from '../../component/Leaderboard';
 import './style.css';
 
-const useForceUpdate = () => {
-    const set = useState(0)[1]
-    // console.log('state updated')
-    return () => set((s) => s+1)
-}
 
 let filterUsers = []
 let userLink;
@@ -54,7 +49,7 @@ const Home = props => {
 
     return (
         <div className=''>
-
+            <p>Home</p>
             <Form className="mb-3 w-50 align-middle" onSubmit={handleFormSubmit}>
                 <FormControl
                     value={searchUser}

@@ -37,12 +37,16 @@ mutation addGoal($day: String!, $activity: String!, $hours: String! $userId: ID!
 `;
 
 export const ADD_FRIEND = gql`
-mutation addFriend($friendId: ID!){
-    addFriend(friendId: $friendId) {
-      email
-    username    
-    }
+mutation addFriend($id: ID!) {
+  addFriend(friendId: $id) {
+      _id
+      username
+      friends {
+          _id
+          username
+      }
   }
+}
 `;
 
 export const REMOVE_FRIEND = gql`

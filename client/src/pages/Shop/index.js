@@ -10,7 +10,7 @@ function Shop() {
 
     return (
     <div className="card px-1 py-1">
-      <Link to={`/products/${_id}`}>
+      {/* <Link to={`/products/${_id}`}>
         <img
           alt={name}
           src={`img/user_icons/${svg}`}
@@ -20,7 +20,7 @@ function Shop() {
       <div>
         <span>${price}</span>
       </div>
-      <button onClick={purchase}>Purchase</button>
+      <button onClick={purchase}>Purchase</button> */}
     </div>
     )
 }

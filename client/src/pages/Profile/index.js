@@ -10,7 +10,7 @@ import { Modal } from 'react-bootstrap';
 import Auth from '../../utils/auth';
 import context from 'react-bootstrap/esm/AccordionContext';
 
-
+let userFollow;
 
 function Profile(props) {
 
@@ -63,26 +63,29 @@ function Profile(props) {
         }
     }
 
-    const handleClick = async () => {
+    const handleFollowClick = async () => {
         try {
             await addFriend({
                 variables: { id: user._id }
             });
+            userFollow = <div> Now Following</div>
+            // console.log('following')
         } catch (e) {
             console.error(e);
         }
     };
-
+    console.log(userFollow)
     return (
         <div>
             <div className="flex-row mb-3">
-                <h2 className="">
+                <h2 className="k">
                     Viewing {userParam ? `${user.username}'s` : 'your'} profile.
                 </h2>
                 {userParam && (
-                    <button className='btn ml-auto' onClick={handleClick}> Add Friend</button>
+                    <button className='btn btn-success ml-auto' onClick={handleFollowClick}> Follow {user.username}</button>
                 )}
             </div>
+                {userFollow}
             <div id="regiment-div">
                 <Regiment regimens={user.regimens}></Regiment>
                 <button type="button" className="form-control btn btn-primary open-modal" onClick={handleShow}>New Goal</button>
