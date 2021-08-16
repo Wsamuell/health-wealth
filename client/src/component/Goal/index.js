@@ -1,9 +1,9 @@
 import React from 'react';
 import { ADD_POINTS } from '../../utils/mutations';
-import { REMOVE_GOAL } from '../../utils/mutations';
+import { REMOVE_GOAL, ADD_POST } from '../../utils/mutations';
 import { useMutation, useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-import { GET_ME, RE } from '../../utils/queries';
+import { GET_ME } from '../../utils/queries';
 import context from 'react-bootstrap/esm/AccordionContext';
 
 function Goal (goal) {
@@ -19,6 +19,7 @@ function Goal (goal) {
     const { loading, data } = useQuery(GET_ME);
     const [addPoints, {error}] = useMutation(ADD_POINTS);
     const [removePost, {err}] = useMutation(REMOVE_GOAL);
+    const [addPost, {ish}] = useMutation(ADD_POST)
     const user = data?.me || [];
 
     const handleGoalSubmit = async (event) => {
@@ -30,6 +31,9 @@ function Goal (goal) {
             })
             await removePost({
                 variables: {goalId: goal.goal._id, userId: user._id}
+            })
+            await addPost({
+                variables: {text: `${user.username} has completed their ${goal.activity}`}
             })
         } catch (err) {
             console.error(err)
