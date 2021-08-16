@@ -1,0 +1,10 @@
+.day-regimen {
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    display:flex;
+    flex-wrap: wrap;
+}
+.day{
+    padding: 20px;
+}

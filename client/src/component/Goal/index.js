@@ -5,6 +5,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { GET_ME } from '../../utils/queries';
 import context from 'react-bootstrap/esm/AccordionContext';
+import './style.css'
 
 function Goal (goal) {
     // query all goals for a user here
@@ -42,7 +43,6 @@ function Goal (goal) {
 
     return (
         <div className="goal-card">
-            <h1>Day: {goal.goal.day}</h1>
             <h1>Goal: {goal.goal.activity}</h1>
             <h1>Hours or Servings: {goal.goal.hours}</h1>
             {!userParam && 
