@@ -4,7 +4,7 @@ import { GET_ME, QUERY_USERS } from '../../utils/queries';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import { FormControl, Button, Form } from 'react-bootstrap'
-// import Leaderboard from '../../component/Leaderboard';
+import Leaderboard from '../../component/Leaderboard';
 import './style.css';
 
 
@@ -63,7 +63,7 @@ const Home = props => {
                 </Button>
             </Form>
             {userLink}
-            {/* <Leaderboard /> */}
+            <Leaderboard />
         </div>
     )
 

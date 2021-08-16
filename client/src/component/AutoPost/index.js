@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Recipes () {
+function AutoPost () {
     return (
         <div>
             {/* Here, we would make a query to get all of the user's recipes from the database.
@@ -9,4 +9,4 @@ function Recipes () {
     )
 }
 
-export default Recipes;
+export default AutoPost;

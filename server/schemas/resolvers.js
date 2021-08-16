@@ -95,13 +95,13 @@ const resolvers = {
         },
         removeFriend: async (parent, {friendId}, context) => {
             if(context.user) {
-                await User.findOneAndUpdate(
+                const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $pull: {friends: friendId}},
+                    { $pull: { friends: friendId }},
                     { new: true }
-                )
+                ).populate('friends')
 
-                return context.user
+                return updatedUser;
             }
 
             throw new AuthenticationError('You need to be logged in!');
