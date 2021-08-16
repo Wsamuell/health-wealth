@@ -23,7 +23,7 @@ const Home = props => {
         event.preventDefault();
         if (loading) {
             return <div>Loading...</div>;
-          }
+        }
         if (!searchUser) {
             return false;
         }
@@ -37,32 +37,34 @@ const Home = props => {
             setSearchUser(filterUsers);
             setSearchUser('');
             userLink = <Link to={`/profile/${filterUsers[0].username}`}>{filterUsers[0].username}</Link>
-    
+
         } catch (err) {
             userLink = <div>No User found</div>
             // console.log('no user found');
         }
     }
 
-    
+
 
 
     return (
         <div className=''>
             <p>Home</p>
-            <Form className="mb-3 w-50 align-middle" onSubmit={handleFormSubmit}>
-                <FormControl
-                    value={searchUser}
-                    name='userSearch'
-                    type="text"
-                    onChange={(e) => setSearchUser(e.target.value)}
-                    placeholder="Search By Username..."
-                />
-                <Button type='submit' variant="outline-secondary" id="button-addon2">
-                    Search
-                </Button>
-            </Form>
-            {userLink}
+            <div>
+                <Form className="mb-3 w-50 align-middle" onSubmit={handleFormSubmit}>
+                    <FormControl
+                        value={searchUser}
+                        name='userSearch'
+                        type="text"
+                        onChange={(e) => setSearchUser(e.target.value)}
+                        placeholder="Search By Username..."
+                    />
+                    <Button type='submit' variant="outline-secondary" id="button-addon2">
+                        Search
+                    </Button>
+                </Form>
+                {userLink}
+            </div>
             <Leaderboard />
         </div>
     )
