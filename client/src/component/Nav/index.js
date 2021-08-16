@@ -22,7 +22,6 @@ function Nav() {
                         <>
                             <Link to="/profile" className='btn btn-info btn-lg'> My Profile </Link>
                             <a href="/" className='btn btn-danger btn-lg' onClick={logout}> Logout </a>
-                            {/* <Link to="/shop" className='btn btn-info btn-lg'> Shop </Link> */}
 
                         </>
                     ) : (
@@ -31,6 +30,7 @@ function Nav() {
                             <Link to="/signup" className='btn btn-success btn-lg'>Signup</Link>
                         </>
                     )}
+                    <Link to="/shop" className='btn btn-info btn-lg'> Shop </Link>
                 </nav>
             </div>
         </header>

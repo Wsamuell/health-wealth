@@ -75,9 +75,9 @@ function App() {
             <Route exact path="/signup" component={Portal} />
             <Route exact path="/shop" >
               {Auth.loggedIn() ? (
-                <Profile />
+                <Shop />
               ) : (
-                <Portal />
+                <Shop />
               )}
             </Route>
             <Route exact path="/profile">
