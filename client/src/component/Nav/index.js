@@ -22,6 +22,8 @@ function Nav() {
                         <>
                             <Link to="/profile" className='btn btn-info btn-lg'> My Profile </Link>
                             <a href="/" className='btn btn-danger btn-lg' onClick={logout}> Logout </a>
+                            {/* <Link to="/shop" className='btn btn-info btn-lg'> Shop </Link> */}
+
                         </>
                     ) : (
                         <>
