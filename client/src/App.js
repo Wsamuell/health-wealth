@@ -8,11 +8,8 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Portal from './pages/Portal';
 import NoMatch from './pages/NoMatch';
-
 import Auth from './utils/auth'
 import Shop from './pages/Shop';
-
-
 
 const httpLink = createHttpLink({
   // for local
