@@ -10,6 +10,7 @@ query me{
         day
         activity
         hours
+        _id
       }
     } 
 }

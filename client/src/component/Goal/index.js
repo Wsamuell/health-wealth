@@ -28,6 +28,9 @@ function Goal (goal) {
             await addPoints({
                 variables: {userId: user._id, pointValue: 10}
             })
+            await removePost({
+                variables: {goalId: goal.goal._id, userId: user._id}
+            })
         } catch (err) {
             console.error(err)
         }
