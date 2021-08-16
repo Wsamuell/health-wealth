@@ -12,7 +12,7 @@ import context from 'react-bootstrap/esm/AccordionContext';
 
 let userFollow;
 
-function Profile() {
+function Profile(props) {
 
     const { username: userParam } = useParams();
     const [addFriend] = useMutation(ADD_FRIEND);
@@ -22,9 +22,9 @@ function Profile() {
     });
 
     const [addGoal, { error }] = useMutation(ADD_GOAL)
+
     const [goalFormData, setGoalFormData] = useState({ day: '', activity: '', hours: '' });
     const user = data?.me || data?.user || [];
-
 
 
     const [showModal, setShowModal] = useState(false)

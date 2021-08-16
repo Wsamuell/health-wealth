@@ -8,7 +8,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Portal from './pages/Portal';
 import Auth from './utils/auth'
-
+import Shop from './pages/Shop';
 
 
 
@@ -64,6 +64,13 @@ function App() {
             </Route>
             <Route exact path="/login" component={Portal} />
             <Route exact path="/signup" component={Portal} />
+              <Route exact path="/shop" />
+                {Auth.loggedIn() ? (
+                  <Profile />
+                ) : (
+                  <Portal />
+                )}
+              </Route>
             <Route exact path="/profile">
               {Auth.loggedIn() ? (
                 <Profile />
@@ -79,11 +86,11 @@ function App() {
               )}
             </Route>
           </Switch>
-          <Footer />
+            <Footer />
         </div>
       </Router>
     </ApolloProvider>
-  );
+      );
 }
 
-export default App;
+      export default App;
