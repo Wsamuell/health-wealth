@@ -14,8 +14,8 @@ type User {
 
 type Post {
     _id: ID
-    text: String
-    user: User
+    textInfo: String
+    userId: ID!
     likes: Int
     reactions: [Reaction]
 }
@@ -60,6 +60,7 @@ type Mutation {
     addPoints(pointValue: Int!, userId: ID!): User
     removePoints(pointValue: Int!, userId: ID!): User
     changeIcon(iconName: String!): User
+    addPost(textInfo: String!, userId: ID!): Post
 }
 `;
 

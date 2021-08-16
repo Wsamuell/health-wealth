@@ -93,6 +93,9 @@ const resolvers = {
 
             throw new AuthenticationError('You need to be logged in!');
         },
+        addPost: async (parent, {text}, context) => {
+            await Post.create({textInfo: text, userId: context.user._id})
+        },
         removeFriend: async (parent, {friendId}, context) => {
             if(context.user) {
                 const updatedUser = await User.findOneAndUpdate(
