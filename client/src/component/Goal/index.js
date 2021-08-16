@@ -2,6 +2,7 @@ import React from 'react';
 import { ADD_POINTS } from '../../utils/mutations';
 import { REMOVE_GOAL } from '../../utils/mutations';
 import { useMutation, useQuery } from '@apollo/client';
+import { useParams } from 'react-router-dom';
 import { GET_ME, RE } from '../../utils/queries';
 import context from 'react-bootstrap/esm/AccordionContext';
 
@@ -14,6 +15,7 @@ function Goal (goal) {
     // to get rid of this field entirely. I'm thinking that the user would probably just want to write something like
     // "eat five servings of veggies" or "work out for one hour". So in that case, activity and day are the only 
     // fields you need.
+    const { username: userParam } = useParams();
     const { loading, data } = useQuery(GET_ME);
     const [addPoints, {error}] = useMutation(ADD_POINTS);
     const [removePost, {err}] = useMutation(REMOVE_GOAL);
@@ -36,7 +38,9 @@ function Goal (goal) {
             <h1>Day: {goal.goal.day}</h1>
             <h1>Goal: {goal.goal.activity}</h1>
             <h1>Hours or Servings: {goal.goal.hours}</h1>
+            {!userParam && 
             <button type="submit" className="btn btn-success" onClick={handleGoalSubmit}>Task Complete</button>
+            }
         </div>
     )
 }

@@ -1,43 +1,45 @@
 import React from 'react';
 import '../Leaderboard/style.css';
-// import axios 
+import { QUERY_USERS } from '../../utils/queries';
+import { Table, thead, tr, tbody } from 'react-bootstrap'
+import { useQuery } from '@apollo/client'
 
-// need to sort the data 
 
-// state = {
-//     top25AllTime: []
-// }
 
-// function Leaderboard() {
-//     const {top25AllTime} = this.state;
+function Leaderboard() {
 
-//     return (
-//         <div>
-//             <table>
-//             <h1>Leaderboard</h1>
-//             <thead>
-//                 <tr>
-//                     <th>#</th>
-//                     <th>User</th>
-//                     <th>All Time Points</th>
-//                 </tr>
-//             </thead>
-//             <tbody>
-//             {top25AllTime.map((row, index)=>(
-//                 <tr key={row.username}>
-//                     <td> {index + 1} </td>
-//                     {/* we can pass in an image component to pull up the user's avatar if we want */}
-//                     <td> {row.username} </td>
-//                     <td> {row.top25AllTime} </td>
-//                     <td> {index + 1} </td>
+    const { loading, data } = useQuery(QUERY_USERS)
 
-//                 </tr>
-//             )
-//             )}
-//             </tbody>
-//             </table>
-//         </div>
-//     )
-// }
+    const userData = data?.users || []
 
-// export default Leaderboard;
+    const sortedByPoints = [...userData].sort((a, b) => b.points - a.points).slice(0,25)
+
+
+    return (
+        <div>
+            <h1>Leaderboard</h1>
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>User</th>
+                        <th>All Time Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {sortedByPoints.map((user, index) => (
+                        <tr key={user.username}>
+                            <td> {index + 1} </td>
+                            <td> {user.username} </td>
+                            <td> {user.points} </td>
+
+                        </tr>
+                    )
+                    )}
+                </tbody>
+            </Table>
+        </div>
+    )
+}
+
+export default Leaderboard;

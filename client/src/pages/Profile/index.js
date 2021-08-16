@@ -3,19 +3,19 @@ import Regiment from '../../component/Regiment';
 import FriendList from '../../component/FriendList'
 import { useParams, Redirect } from 'react-router-dom';
 import { GET_ME, QUERY_USER } from '../../utils/queries';
-import { ADD_GOAL, ADD_FRIEND } from '../../utils/mutations';
+import { ADD_GOAL, ADD_FRIEND, REMOVE_FRIEND } from '../../utils/mutations';
 import { useQuery } from '@apollo/client';
 import { useMutation } from '@apollo/client';
 import { Modal } from 'react-bootstrap';
 import Auth from '../../utils/auth';
 import context from 'react-bootstrap/esm/AccordionContext';
 
-let userFollow;
 
 function Profile(props) {
 
     const { username: userParam } = useParams();
     const [addFriend] = useMutation(ADD_FRIEND);
+    const [removeFriend] = useMutation(REMOVE_FRIEND)
 
     const { loading, data } = useQuery(userParam ? QUERY_USER : GET_ME, {
         variables: { username: userParam }
@@ -68,13 +68,20 @@ function Profile(props) {
             await addFriend({
                 variables: { id: user._id }
             });
-            userFollow = <div> Now Following</div>
+        } catch (e) {
+            console.error(e);
+        }
+    };
+    const handleUnFollowClick = async () => {
+        try {
+            await removeFriend({
+                variables: { id: user._id }
+            });
             // console.log('following')
         } catch (e) {
             console.error(e);
         }
     };
-    console.log(userFollow)
     return (
         <div>
             <div className="flex-row mb-3">
@@ -84,11 +91,17 @@ function Profile(props) {
                 {userParam && (
                     <button className='btn btn-success ml-auto' onClick={handleFollowClick}> Follow {user.username}</button>
                 )}
+                {userParam && (
+                    <button className='btn btn-success ml-auto' onClick={handleUnFollowClick}> UnFollow {user.username}</button>
+                )}
             </div>
-                {userFollow}
+            <div>
+            </div>
             <div id="regiment-div">
                 <Regiment regimens={user.regimens}></Regiment>
+                {!userParam && 
                 <button type="button" className="form-control btn btn-primary open-modal" onClick={handleShow}>New Goal</button>
+                }
                 <Modal show={showModal} onHide={() => setShowModal(false)} >
                     <div>
                         <form className="" onSubmit={handleFormSubmit}>
@@ -147,7 +160,9 @@ function Profile(props) {
             <div id="user-div">
                 <img id="user-icon"></img>
                 <h1>{user.username}</h1>
+                {!userParam &&
                 <button>Change Icon</button>
+                }
                 <p id="point-count">{user.points}</p>
             </div>
             <div id="friends=div">
@@ -156,7 +171,9 @@ function Profile(props) {
             <div id="about-me">
                 <h1>About Me</h1>
                 <p>{user.aboutMe}</p>
+                {!userParam &&
                 <button id="edit-button">Edit</button>
+                }
             </div>
         </div>
     )
