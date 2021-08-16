@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import { FormControl, Button, Form } from 'react-bootstrap'
 import Leaderboard from '../../component/Leaderboard';
+import AutoPost from '../../component/AutoPost';
 import './style.css';
 
 
@@ -65,7 +66,11 @@ const Home = props => {
                 </Form>
                 {userLink}
             </div>
-            <Leaderboard />
+            <div>
+                <AutoPost />
+                <Leaderboard />
+            </div>
+
         </div>
     )
 
