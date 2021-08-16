@@ -64,14 +64,27 @@ function App() {
             </Route>
             <Route exact path="/login" component={Portal} />
             <Route exact path="/signup" component={Portal} />
-            <Route exact path="/profile">
-            <Route exact path="/shop" />
+              <Route exact path="/shop" />
                 {Auth.loggedIn() ? (
                   <Profile />
                 ) : (
                   <Portal />
                 )}
               </Route>
+            <Route exact path="/profile">
+              {Auth.loggedIn() ? (
+                <Profile />
+              ) : (
+                <Portal />
+              )}
+            </Route>
+            <Route exact path="/profile/:username?">
+            {Auth.loggedIn() ? (
+                <Profile />
+              ) : (
+                <Portal />
+              )}
+            </Route>
           </Switch>
             <Footer />
         </div>
