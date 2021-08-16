@@ -7,6 +7,8 @@ import Nav from './component/Nav';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Portal from './pages/Portal';
+import NoMatch from './pages/NoMatch';
+
 import Auth from './utils/auth'
 import Shop from './pages/Shop';
 
@@ -62,6 +64,13 @@ function App() {
                 <Portal />
               )}
             </Route>
+            <Route exact path="/portal">
+              {Auth.loggedIn() ? (
+                <Home />
+              ) : (
+                <Portal />
+              )}
+            </Route>
             <Route exact path="/login" component={Portal} />
             <Route exact path="/signup" component={Portal} />
             <Route exact path="/shop" >
@@ -85,6 +94,7 @@ function App() {
                 <Portal />
               )}
             </Route>
+            <Route component={NoMatch} />
           </Switch>
           <Footer />
         </div>
