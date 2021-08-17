@@ -10,7 +10,7 @@ function Footer() {
                 <a className="text-dark" href="https://github.com/Wsamuell/health-wealth" target='_blank' >Project Repository</a>
             </div>
             <div className='authors-footer'>
-                <div className="text-center">
+                <div className="each-dev">
                     <p className="">
                         Cade Ellsworth
                     </p>
@@ -21,7 +21,7 @@ function Footer() {
 
                     </div>
                 </div>
-                <div className="text-center">
+                <div className="each-dev">
                     <p className="">
                         Natasha Harrison
                     </p>
@@ -31,7 +31,7 @@ function Footer() {
                         {/* <a href="mailto:natasharrison@gmail.com"><img className='icon' src={require("../../assets/img/gmail.png").default} alt='gmail-icon' /></a> */}
                     </div>
                 </div>
-                <div className="text-center">
+                <div className="each-dev">
                     <p className="">
                         Elias Saunders
                     </p>
@@ -41,7 +41,7 @@ function Footer() {
                         {/* <a href="mailto:eliasashtonsaunders@gmail.com"><img className='icon' src={require("../../assets/img/gmail.png").default} alt='gmail-icon' /></a> */}
                     </div>
                 </div>
-                <div className="text-center">
+                <div className="each-dev">
                     <p className="">
                         Samuel Odubamowo
                     </p>

@@ -4,71 +4,76 @@ import './style.css'
 
 
 
-const Regiment = ({regimens}) => {
+const Regiment = ({ regimens }) => {
     console.log(regimens)
-    if(!regimens) {
+    if (!regimens) {
         return <div>No Reg</div>
     }
-     console.log(regimens)
-     return (
+    console.log(regimens)
+
+    return (
         <div className='day-regimen'>
-           {/* <p> My Tasks </p> */}
-            <div className="day" id="sunday">
-                <h2>Sunday</h2>
-                {regimens.map(goal => {
-                    if(goal.day === "Sunday") {
-                       return <Goal key="1" goal={goal}></Goal>
-                    } 
-                })}
+            <p className='current-title'> Current Goals </p>
+            <div className='day-to-day'>
+                <div className="day" id="sunday">
+                    <h3>Sunday</h3>
+                    {regimens.map(goal => {
+                        if (goal.day === "Sunday") {
+                            return <Goal key="1" goal={goal}></Goal>
+                        }
+                    })}
+                </div>
+                <div className="day" id="monday">
+                    <h3>Monday</h3>
+                    {regimens.map(goal => {
+                        if (goal.day === "Monday") {
+                            return <Goal key="2" goal={goal}></Goal>
+                        }
+                    })}
+                </div>
+                <div className="day" id="tuesday">
+                    <h3>Tuesday</h3>
+                    {regimens.map(goal => {
+                        if (goal.day === "Tuesday") {
+                            return <Goal key="3" goal={goal}></Goal>
+                        }
+                    })}
+                </div>
+
+                <div className="day" id="wednesday">
+                    <h3>Wednesday</h3>
+                    {regimens.map(goal => {
+                        if (goal.day === "Wednesday") {
+                            return <Goal key="4" goal={goal}></Goal>
+                        }
+                    })}
+                </div>
+                <div className="day" id="thursday">
+                    <h3>Thursday</h3>
+                    {regimens.map(goal => {
+                        if (goal.day === "Thursday") {
+                            return <Goal key="5" goal={goal}></Goal>
+                        }
+                    })}
+                </div>
+                <div className="day" id="friday">
+                    <h3>Friday</h3>
+                    {regimens.map(goal => {
+                        if (goal.day === "Friday") {
+                            return <Goal key="6" goal={goal}></Goal>
+                        }
+                    })}
+                </div>
+                <div className="day" id="saturday">
+                    <h3>Saturday</h3>
+                    {regimens.map(goal => {
+                        if (goal.day === "Saturday") {
+                            return <Goal key="7" goal={goal}></Goal>
+                        }
+                    })}
+                </div>
             </div>
-            <div className="day" id="monday">
-                <h2>Monday</h2>
-                {regimens.map(goal => {
-                    if(goal.day === "Monday") {
-                        return <Goal key="2" goal={goal}></Goal>
-                    } 
-                })}
-            </div>
-            <div className="day" id="tuesday">
-                <h2>Tuesday</h2>
-                {regimens.map(goal => {
-                    if(goal.day === "Tuesday") {
-                       return <Goal key="3" goal={goal}></Goal>
-                    } 
-                })}
-            </div>
-            <div className="day" id="wednesday">
-                <h2>Wednesday</h2>
-                {regimens.map(goal => {
-                    if(goal.day === "Wednesday") {
-                        return <Goal key="4" goal={goal}></Goal>
-                    } 
-                })}
-            </div>
-            <div className="day" id="thursday">
-                <h2>Thursday</h2>
-                {regimens.map(goal => {
-                    if(goal.day === "Thursday") {
-                       return <Goal key="5" goal={goal}></Goal>
-                    } 
-                })}
-            </div>
-            <div className="day" id="friday">
-                <h2>Friday</h2>
-                {regimens.map(goal => {
-                    if(goal.day === "Friday") {
-                       return <Goal key="6" goal={goal}></Goal>
-                    } 
-                })}
-            </div>
-            <div className="day" id="saturday">
-                <h2>Saturday</h2>
-                {regimens.map(goal => {
-                    if(goal.day === "Saturday") {
-                       return <Goal key="7" goal={goal}></Goal>
-                    } 
-                })}
-            </div>
+
         </div>
     )
 }

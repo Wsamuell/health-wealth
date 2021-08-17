@@ -52,3 +52,16 @@ query user($username:String!) {
     }
   }
 `;
+
+ export const ALL_POST = gql`
+ query allpost {
+  allPosts{
+    _id
+    textInfo
+    userId
+    likes
+    reactions {
+      commentText
+    }
+  }
+}`;

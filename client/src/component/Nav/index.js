@@ -30,8 +30,8 @@ function Nav() {
                         <Link to="/home" className='home'> Home </Link>
                         <Link to="/profile" className='my-profile'> My Profile </Link>
 
+                        <Link to="/shop" className='shop'> Shop </Link>
                         <Link href="/" className='logout' onClick={logout}> Logout </Link>
-                        <Link to="/shop" className='btn btn-info btn-lg'> Shop </Link>
                     </>
                 ) : (
                     <>
