@@ -2,8 +2,9 @@ import React from 'react';
 import { ALL_POST } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import Goal from '../Goal';
+import './style.css'
 
-function AutoPost({regimens}) {
+function AutoPost({ regimens }) {
 
     const { data } = useQuery(ALL_POST)
 
@@ -14,13 +15,28 @@ function AutoPost({regimens}) {
 
     return (
         <div>
-            <p>Recent activities from your friends</p>
-            <div>
-                <div>UserName recently completed the following Task</div>
-                <div>goal.activity</div>
+            <div className='each-post'>
+                <p>Recent activities from your friends</p>
+                <div>
+                    <div>UserName recently completed the following Task</div>
+                    <div>goal.activity</div>
 
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <div>
+                <p>Recent activities from your friends</p>
+                <div>
+                    <div>UserName recently completed the following Task</div>
+                    <div>goal.activity</div>
+
+                </div>
             </div>
         </div>
+
     )
 }
 
