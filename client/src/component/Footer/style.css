@@ -1,13 +1,24 @@
+footer {
+    display: flex;
+    flex-direction: column;
+}
 .icon {
     width: 40px;
 }
 .authors-footer {
     display: flex;
-    justify-content: space-around;
-    padding: 20px;
+    justify-content: space-between;
+    padding: 40px;
+    flex-wrap: wrap;
+    align-items: center;
 }
 .icon-stuff {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+.each-dev {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
 }

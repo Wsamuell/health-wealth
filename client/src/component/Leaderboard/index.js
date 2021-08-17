@@ -40,6 +40,6 @@ function Leaderboard() {
             </Table>
         </div>
     )
-}
+};
 
 export default Leaderboard;
