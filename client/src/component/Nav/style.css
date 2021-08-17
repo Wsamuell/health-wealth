@@ -4,30 +4,31 @@ header {
     /* flex-wrap: wrap; */
     /* align-content: center; */
     padding: 10px;
-    background-image: url('../../assets/img/nav-bg.jpeg');
-    background-position: top;
-    background-size: contain;
+    background-image: url('../../assets/img/nav-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     font-family: 'Lobster', cursive;
     text-decoration: none;
 }
 .mini-health {
     text-decoration: none;
     color: #ffb703;
-    text-shadow: 3px 3px #219ebc
+    /* text-shadow: 3px 3px #219ebc */
 
 }
 .mini-span-h { 
     color: #fb8500;
-    font-size: 70px;
+    font-size: 90px;
 }
 .mini-wealth{
     color: #fb8500;
-    text-shadow: 3px 3px #219ebc
+    /* text-shadow: 3px 3px #219ebc */
 
 }
 .mini-span-w { 
     color: #ffb703;
-    font-size: 70px;
+    font-size: 90px;
 }
 .mini-span-plus { 
     color: #8ecae6;
@@ -49,11 +50,13 @@ nav {
 }
 .home, .my-profile, .logout, .login-spc, .signup  {
     text-decoration: none;
-    color: black;
     font-size: 30px;
     padding: 7px;
+    color: #fb8500;
     
 }
 .home:hover, .my-profile:hover, .logout:hover, .login-spc:hover, .signup:hover {
     background-color: yellow;
+    color: #ffb703;
+
 }
