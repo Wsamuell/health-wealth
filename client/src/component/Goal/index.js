@@ -34,7 +34,7 @@ function Goal (goal) {
                 variables: {goalId: goal.goal._id, userId: user._id}
             })
             await addPost({
-                variables: {text: `${user.username} has completed their ${goal.activity}`}
+                variables: {textInfo: `${user.username} has completed their ${goal.goal.activity}`, userId: user._id}
             })
         } catch (err) {
             console.error(err)

@@ -112,7 +112,6 @@ function Profile(props) {
                                     placeholder='Day'
                                     name='day'
                                     onChange={handleInputChange}
-                                    value={goalFormData.username}
                                     required
                                 >
                                     <option value="Sunday">Sunday</option>
