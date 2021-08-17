@@ -47,7 +47,7 @@ function Profile(props) {
     if (!user?.username) {
         return (
             <h4>
-                You need to be logged in to see this page. Use the navigation links above to sign up or log in!
+                No User found with this Username
             </h4>
         );
     }
@@ -84,89 +84,98 @@ function Profile(props) {
         }
     };
     return (
-        <div>
-            <div className="flex-row mb-3">
-                <h2 className="k">
+        <div className='profile'>
+            <div className="flex-row mb-3 prof-view">
+                <h2 className="prof-title">
                     Viewing {userParam ? `${user.username}'s` : 'your'} profile.
                 </h2>
                 {userParam && (
-                    <button className='btn btn-success ml-auto' onClick={handleFollowClick}> Follow {user.username}</button>
-                )}
-                {userParam && (
-                    <button className='btn btn-success ml-auto' onClick={handleUnFollowClick}> UnFollow {user.username}</button>
+                    <div className='follow'>
+                        <button className='btn btn-primary ml-auto' onClick={handleFollowClick}> Follow {user.username}</button>
+                        <button className='btn btn-secondary ml-auto' onClick={handleUnFollowClick}> UnFollow {user.username}</button>
+                    </div>
                 )}
             </div>
-            <div className="container">
-                
-                <div className="row">
+            <div id="user-div" className="">
+                <h4>Current Badge</h4>
+                <img id="user-icon" src={require('../../assets/user_icons/defaulticon.svg').default} height='150px' width='150px'></img>
+                {/* {!userParam &&
+                    <button className='btn btn-outline-secondary'>Change Icon</button>
+                } */}
+                <p id="point-count">{user.points} Total Points</p>
+            </div>
+            <div className="regimen-col">
+                <div id="about-me">
+                    <h2>About Me</h2>
+                    <p className='about-text'>{user.aboutMe}</p>
+                    {!userParam &&
+                        <button className='btn btn-outline-info'>Edit</button>
+                    }
+                </div>
 
-                    <div id="regiment-div" className="col-8">
+                <div className="">
+
+                    <div id="regiment-div" className="">
                         <Regiment regimens={user.regimens}></Regiment>
                         {!userParam &&
                             <button type="button" className="form-control btn btn-primary open-modal" onClick={handleShow}>New Goal</button>
                         }
-                        <Modal show={showModal} onHide={() => setShowModal(false)} >
-                            <div>
-                                <form className="" onSubmit={handleFormSubmit}>
-                                    <div className="mb-3">
-                                        <select
-                                            type="day"
-                                            className=""
-                                            placeholder='Day'
-                                            name='day'
-                                            onChange={handleInputChange}
-                                            required
-                                        >
-                                            <option value="Sunday">Sunday</option>
-                                            <option value="Monday">Monday</option>
-                                            <option value="Tuesday">Tuesday</option>
-                                            <option value="Wednesday">Wednesday</option>
-                                            <option value="Thursday">Thursday</option>
-                                            <option value="Friday">Friday</option>
-                                            <option value="Saturday">Saturday</option>
-                                        </select>
-                                    </div>
-                                    <div className="mb-3">
-                                        <input
-                                            type="activity"
-                                            className="form-control"
-                                            type='text'
-                                            placeholder='Activity'
-                                            name='activity'
-                                            onChange={handleInputChange}
-                                            value={goalFormData.email}
-                                            required
-                                        />
-                                    </div>
-                                    <div className="mb-3">
-                                        <input
-                                            type="hours"
-                                            className="form-control"
-                                            type='text'
-                                            placeholder='Hours'
-                                            name='hours'
-                                            onChange={handleInputChange}
-                                            value={goalFormData.password}
-                                            required
-                                        />
-                                    </div>
-                                    <button
-                                        type="submit"
-                                        className="form-control btn btn-success"
-                                        disabled={!(goalFormData.day && goalFormData.activity && goalFormData.hours)}
-                                    >Add Goal</button>
-                                </form>
-                            </div>
+                        <Modal show={showModal} onHide={() => setShowModal(false)}>
+                            <form className="goal-modal" onSubmit={handleFormSubmit}>
+
+                                <div className="">
+                                    <select
+                                        type="day"
+                                        className="dropdown"
+                                        placeholder='Day'
+                                        name='day'
+                                        onChange={handleInputChange}
+                                        required
+                                    >
+                                        <option value="Sunday">Sunday</option>
+                                        <option value="Monday">Monday</option>
+                                        <option value="Tuesday">Tuesday</option>
+                                        <option value="Wednesday">Wednesday</option>
+                                        <option value="Thursday">Thursday</option>
+                                        <option value="Friday">Friday</option>
+                                        <option value="Saturday">Saturday</option>
+                                    </select>
+                                </div>
+                                <br />
+                                <div className="mb-3">
+                                    <input
+                                        type="activity"
+                                        className="form-control"
+                                        type='text'
+                                        placeholder='Goal'
+                                        name='activity'
+                                        onChange={handleInputChange}
+                                        value={goalFormData.email}
+                                        required
+                                    />
+                                </div>
+                                <div className="mb-3">
+                                    <input
+                                        type="hours"
+                                        className="form-control"
+                                        type='text'
+                                        placeholder='Hours or Servings'
+                                        name='hours'
+                                        onChange={handleInputChange}
+                                        value={goalFormData.password}
+                                        required
+                                    />
+                                </div>
+                                <button
+                                    type="submit"
+                                    className="form-control btn btn-success"
+                                    onClick={handleClose}
+                                    disabled={!(goalFormData.day && goalFormData.activity && goalFormData.hours)}
+                                >Add Goal</button>
+                            </form>
                         </Modal>
                     </div>
-                    <div id="user-div" className="col-4">
-                        <img id="user-icon" src={require('../../assets/user_icons/defaulticon.svg').default} height='150px' width='150px'></img>
-                        <h1>{user.username}</h1>
-                        {!userParam &&
-                            <button>Change Icon</button>
-                        }
-                        <p id="point-count">{user.points}</p>
-                    </div>
+
                 </div>
             </div>
 
@@ -174,13 +183,6 @@ function Profile(props) {
                 <FriendList friends={user.friends}></FriendList>
             </div>
 
-            <div id="about-me">
-                <h1>About Me</h1>
-                <p>{user.aboutMe}</p>
-                {!userParam &&
-                    <button id="edit-button">Edit</button>
-                }
-            </div>
         </div>
     )
 }
