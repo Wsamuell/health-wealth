@@ -40,6 +40,7 @@ nav {
     display: flex;
     align-items: center;
     padding: 30px;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -52,11 +53,11 @@ nav {
     text-decoration: none;
     font-size: 30px;
     padding: 7px;
-    color: #fb8500;
+    color: white;
     
 }
 .home:hover, .my-profile:hover, .logout:hover, .login-spc:hover, .signup:hover {
-    background-color: yellow;
-    color: #ffb703;
+    text-decoration: underline;
+    color: #fb8500;
 
 }
