@@ -15,26 +15,29 @@ function AutoPost({ regimens }) {
 
     return (
         <div>
+            <p>Recent activities from your friends</p>
             <div className='each-post'>
-                <p>Recent activities from your friends</p>
                 <div>
                     <div>UserName recently completed the following Task</div>
                     <div>goal.activity</div>
-
+                <div>
+                    <button>like</button>
+                    <button>comment</button>
+                </div>
                 </div>
             </div>
-            <br />
-            <br />
-            <br />
-            <br />
-            <div>
-                <p>Recent activities from your friends</p>
+
+            <div className='each-post'>
                 <div>
                     <div>UserName recently completed the following Task</div>
                     <div>goal.activity</div>
-
+                <div>
+                    <button>like</button>
+                    <button>comment</button>
+                </div>
                 </div>
             </div>
+   
         </div>
 
     )
