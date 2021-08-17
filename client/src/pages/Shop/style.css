@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita:ital@1&display=swap');
+
+.shop-page {
+    font-family: 'Sansita', sans-serif;
+}
+
+.shop-title {
+    display: flex;
+    justify-content: center;
+    color: #023047;
+    font-size: 40px;
+    border-bottom: 1rem #219ebc solid;
+    padding: 20px;
+}
+
+#badgeCard {
+    background-color: blueviolet;
+}
