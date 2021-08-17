@@ -1,7 +1,15 @@
 import React from 'react';
+import { ALL_POST } from '../../utils/queries';
+import { useQuery } from '@apollo/client';
+import Goal from '../Goal';
 
-function AutoPost (props) {
+function AutoPost({regimens}) {
 
+    const { data } = useQuery(ALL_POST)
+
+    const userData = data?.users || []
+    console.log(userData)
+    console.log(regimens)
 
 
     return (
