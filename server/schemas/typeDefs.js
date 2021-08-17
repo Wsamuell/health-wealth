@@ -63,6 +63,7 @@ type Mutation {
     removePoints(pointValue: Int!, userId: ID!): User
     changeIcon(iconName: String!): User
     addPost(textInfo: String!, userId: ID!): Post
+    changeAbout(aboutMe: String!): User
 }
 `;
 

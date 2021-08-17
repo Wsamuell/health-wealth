@@ -3,7 +3,7 @@ import Regiment from '../../component/Regiment';
 import FriendList from '../../component/FriendList'
 import { useParams, Redirect } from 'react-router-dom';
 import { GET_ME, QUERY_USER } from '../../utils/queries';
-import { ADD_GOAL, ADD_FRIEND, REMOVE_FRIEND } from '../../utils/mutations';
+import { ADD_GOAL, ADD_FRIEND, REMOVE_FRIEND, CHANGE_ABOUT } from '../../utils/mutations';
 import { useQuery, useMutation } from '@apollo/client';
 import { Modal } from 'react-bootstrap';
 import Auth from '../../utils/auth';
@@ -16,6 +16,7 @@ function Profile(props) {
     const { username: userParam } = useParams();
     const [addFriend] = useMutation(ADD_FRIEND);
     const [removeFriend] = useMutation(REMOVE_FRIEND);
+    const [changeAbout] = useMutation(CHANGE_ABOUT)
 
     const { loading, data } = useQuery(userParam ? QUERY_USER : GET_ME, {
         variables: { username: userParam }
@@ -27,9 +28,19 @@ function Profile(props) {
     const user = data?.me || data?.user || [];
 
 
+    const [aboutMeSubmit, setMeSubmit] = useState({about: ''})
+    const [showModal2, setShowModal2] = useState(false)
+    const handleClose2 = () => setShowModal2(false)
+    const handleShow2 = () => setShowModal2(true)
+
     const [showModal, setShowModal] = useState(false)
     const handleClose = () => setShowModal(false);
     const handleShow = () => setShowModal(true);
+
+    const handleInputChange2 = (event) => {
+        const {name, value} = event.target
+        setMeSubmit({...aboutMeSubmit, [name]: value });
+    }
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -49,6 +60,18 @@ function Profile(props) {
                 No User found with this Username
             </h4>
         );
+    }
+
+    const handleAboutMeSubmit = async (event) => {
+        console.log(aboutMeSubmit);
+        event.preventDefault();
+        try {
+            await changeAbout({
+                variables:{...aboutMeSubmit} 
+            })
+        } catch (err) {
+            console.error(err)
+        }
     }
 
     const handleFormSubmit = async (event) => {
@@ -108,8 +131,14 @@ function Profile(props) {
                     <h2>About Me</h2>
                     <p className='about-text'>{user.aboutMe}</p>
                     {!userParam &&
-                        <button className='btn btn-outline-info'>Edit</button>
+                        <button type="button" className='form-control btn btn-outline-info open-modal' onClick={handleShow2}>Edit</button>
                     }
+                    <Modal show={showModal2} onHide={() => setShowModal2(false)}>
+                        <form onSubmit={handleAboutMeSubmit} className="aboutMe-modal">
+                        <input placeholder="Tell Visitors About Yourself" name="about" onChange={handleInputChange2} value={aboutMeSubmit.about}></input>
+                        <button type="submit" onClick={handleClose2}>Submit</button>
+                        </form>
+                    </Modal>
                 </div>
 
                 <div className="">

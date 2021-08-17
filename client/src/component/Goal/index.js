@@ -23,6 +23,18 @@ function Goal (goal) {
     const [addPost, {ish}] = useMutation(ADD_POST)
     const user = data?.me || [];
 
+    const handleGoalDelete = async (event) => {
+        event.preventDefault();
+
+        try {
+            await removePost({
+                variables: {goalId: goal.goal._id, userId: user._id}
+            })
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
     const handleGoalSubmit = async (event) => {
         event.preventDefault();
 
@@ -51,7 +63,7 @@ function Goal (goal) {
             <h6>{goal.goal.hours}</h6>
             {!userParam && 
             <button type="submit" className="btn btn-success" onClick={handleGoalSubmit}>Task Complete</button>
-            }
+            }<button onClick={handleGoalDelete} className="btn btn-success">Delete</button>
         </div>
     )
 }

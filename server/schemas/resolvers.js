@@ -142,6 +142,16 @@ const resolvers = {
                 { new: false }
             )
             return updatedUser;
+        },
+        changeAbout: async (parent, {aboutMe}, context) => {
+            if (context.user) {
+                const updatedUser = User.findByIdAndUpdate(
+                    {_id: context.user._id},
+                    {$set: {aboutMe: aboutMe}},
+                    {new: true}
+                    )
+                return updatedUser
+            }
         }
         
     }

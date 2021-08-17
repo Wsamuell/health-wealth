@@ -106,3 +106,10 @@ mutation addPost($textInfo: String!, $userId: ID!) {
     userId
   }
 }`
+
+export const CHANGE_ABOUT = gql`
+mutation changeAbout($aboutMe: String!){
+    changeAbout(aboutMe: $aboutMe) {
+      aboutMe
+    }
+}`
