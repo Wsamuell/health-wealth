@@ -52,7 +52,8 @@ query user($username:String!) {
     }
   }
 `;
- export const ALL_POST = gql `
+
+ export const ALL_POST = gql`
  query allpost {
   allPosts{
     _id
@@ -63,6 +64,4 @@ query user($username:String!) {
       commentText
     }
   }
-}
-
- `;
+}`;
