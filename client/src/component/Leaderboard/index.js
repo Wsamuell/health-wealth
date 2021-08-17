@@ -8,7 +8,7 @@ import { useQuery } from '@apollo/client'
 
 function Leaderboard() {
 
-    const { loading, data } = useQuery(QUERY_USERS)
+    const { data } = useQuery(QUERY_USERS)
 
     const userData = data?.users || []
 
@@ -40,6 +40,6 @@ function Leaderboard() {
             </Table>
         </div>
     )
-}
+};
 
 export default Leaderboard;

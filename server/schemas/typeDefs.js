@@ -9,6 +9,7 @@ type User {
     points: Int
     aboutMe: String
     regimens: [Goal]
+    post: [Post]
     friends: [User]
 }
 
@@ -18,6 +19,7 @@ type Post {
     userId: ID!
     likes: Int
     reactions: [Reaction]
+    createdAt: String
 }
 
 type Auth {

@@ -37,10 +37,13 @@ const Home = props => {
             // console.log(filterUsers[0])
             setSearchUser(filterUsers);
             setSearchUser('');
-            userLink = <Link to={`/profile/${filterUsers[0].username}`}>{filterUsers[0].username}</Link>
+            userLink = <div class="d-grid gap-2 col-6 mx-auto mb-4">
+                <p>User Found</p>
+                <Link className='searched-content btn btn-outline-secondary' to={`/profile/${filterUsers[0].username}`}>{filterUsers[0].username}</Link>
+            </div>
 
         } catch (err) {
-            userLink = <div>No User found</div>
+            userLink = <div className='no-searched-content'>No User found</div>
             // console.log('no user found');
         }
     }
@@ -49,10 +52,9 @@ const Home = props => {
 
 
     return (
-        <div className=''>
-            <p>Home</p>
+        <div className='home-sec'>
             <div>
-                <Form className="mb-3 w-50 align-middle" onSubmit={handleFormSubmit}>
+                <Form className="search-form" onSubmit={handleFormSubmit}>
                     <FormControl
                         value={searchUser}
                         name='userSearch'
@@ -66,7 +68,7 @@ const Home = props => {
                 </Form>
                 {userLink}
             </div>
-            <div>
+            <div className='home-p-l'>
                 <AutoPost />
                 <Leaderboard />
             </div>
