@@ -1,5 +1,7 @@
 import React from 'react';
 import Goal from '../Goal';
+import './style.css'
+
 
 
 const Regiment = ({regimens}) => {
@@ -9,7 +11,8 @@ const Regiment = ({regimens}) => {
     }
      console.log(regimens)
      return (
-        <div>
+        <div className='day-regimen'>
+           {/* <p> My Tasks </p> */}
             <div className="day" id="sunday">
                 <h2>Sunday</h2>
                 {regimens.map(goal => {

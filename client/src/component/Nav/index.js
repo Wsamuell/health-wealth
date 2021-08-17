@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import '../Nav/style.css';
+import '../../assets/img/nav-bg.jpeg'
 
 function Nav() {
 
@@ -9,6 +10,9 @@ function Nav() {
         event.preventDefault();
         Auth.logout();
     };
+    const refreshPage = () => {
+        window.location.reload(false)
+    }
 
     return (
         <header>

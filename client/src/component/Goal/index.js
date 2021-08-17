@@ -1,10 +1,11 @@
 import React from 'react';
 import { ADD_POINTS } from '../../utils/mutations';
-import { REMOVE_GOAL } from '../../utils/mutations';
+import { REMOVE_GOAL, ADD_POST } from '../../utils/mutations';
 import { useMutation, useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-import { GET_ME, RE } from '../../utils/queries';
+import { GET_ME } from '../../utils/queries';
 import context from 'react-bootstrap/esm/AccordionContext';
+import './style.css'
 
 function Goal (goal) {
     // query all goals for a user here
@@ -19,6 +20,7 @@ function Goal (goal) {
     const { loading, data } = useQuery(GET_ME);
     const [addPoints, {error}] = useMutation(ADD_POINTS);
     const [removePost, {err}] = useMutation(REMOVE_GOAL);
+    const [addPost, {ish}] = useMutation(ADD_POST)
     const user = data?.me || [];
 
     const handleGoalSubmit = async (event) => {
@@ -28,6 +30,12 @@ function Goal (goal) {
             await addPoints({
                 variables: {userId: user._id, pointValue: 10}
             })
+            await removePost({
+                variables: {goalId: goal.goal._id, userId: user._id}
+            })
+            await addPost({
+                variables: {textInfo: `${user.username} has completed their ${goal.goal.activity}`, userId: user._id}
+            })
         } catch (err) {
             console.error(err)
         }
@@ -35,7 +43,6 @@ function Goal (goal) {
 
     return (
         <div className="goal-card">
-            <h1>Day: {goal.goal.day}</h1>
             <h1>Goal: {goal.goal.activity}</h1>
             <h1>Hours or Servings: {goal.goal.hours}</h1>
             {!userParam && 
