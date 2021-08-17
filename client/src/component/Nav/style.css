@@ -57,6 +57,7 @@ nav {
     
 }
 .home:hover, .my-profile:hover, .logout:hover, .login-spc:hover, .signup:hover, .shop:hover {
+
     text-decoration: underline;
     color: #fb8500;
 
