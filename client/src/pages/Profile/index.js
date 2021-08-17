@@ -4,8 +4,7 @@ import FriendList from '../../component/FriendList'
 import { useParams, Redirect } from 'react-router-dom';
 import { GET_ME, QUERY_USER } from '../../utils/queries';
 import { ADD_GOAL, ADD_FRIEND, REMOVE_FRIEND } from '../../utils/mutations';
-import { useQuery } from '@apollo/client';
-import { useMutation } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { Modal } from 'react-bootstrap';
 import Auth from '../../utils/auth';
 import context from 'react-bootstrap/esm/AccordionContext';
@@ -16,7 +15,7 @@ function Profile(props) {
 
     const { username: userParam } = useParams();
     const [addFriend] = useMutation(ADD_FRIEND);
-    const [removeFriend] = useMutation(REMOVE_FRIEND)
+    const [removeFriend] = useMutation(REMOVE_FRIEND);
 
     const { loading, data } = useQuery(userParam ? QUERY_USER : GET_ME, {
         variables: { username: userParam }
@@ -92,7 +91,7 @@ function Profile(props) {
                 {userParam && (
                     <div className='follow'>
                         <button className='btn btn-primary ml-auto' onClick={handleFollowClick}> Follow {user.username}</button>
-                        <button className='btn btn-secondary ml-auto' onClick={handleUnFollowClick}> UnFollow {user.username}</button>
+                        <button className='btn btn-secondary ml-auto' onClick={handleUnFollowClick}> Unfollow {user.username}</button>
                     </div>
                 )}
             </div>
