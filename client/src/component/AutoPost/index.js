@@ -1,43 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ALL_POST } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import Goal from '../Goal';
 import './style.css'
 
-function AutoPost({ regimens }) {
+function AutoPost() {
 
     const { data } = useQuery(ALL_POST)
 
-    const userData = data?.users || []
+    const userData = data || []
     console.log(userData)
-    console.log(regimens)
+
+    const [count, setCount] = useState(0);
 
 
     return (
-        <div>
-            <p>Recent activities from your friends</p>
-            <div className='each-post'>
-                <div>
+        <div className='activities'>
+            <p className='recent-title'>Recent activities around the World</p>
+            <div className='post'>
+                <div className='single-post'>
                     <div>UserName recently completed the following Task</div>
                     <div>goal.activity</div>
-                <div>
-                    <button>like</button>
-                    <button>comment</button>
-                </div>
+                    <div className=''>
+                        <a onClick={() => setCount(count + 1)}> {count}
+                        <img typeof='button' src={require('../../assets/img/heart.png').default} className='heart' />
+                        </a>
+                        <img src={require('../../assets/img/chat.png').default} className='chat' />
+                    </div>
                 </div>
             </div>
 
-            <div className='each-post'>
-                <div>
-                    <div>UserName recently completed the following Task</div>
-                    <div>goal.activity</div>
-                <div>
-                    <button>like</button>
-                    <button>comment</button>
-                </div>
-                </div>
-            </div>
-   
+
         </div>
 
     )

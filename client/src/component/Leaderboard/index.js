@@ -3,7 +3,7 @@ import '../Leaderboard/style.css';
 import { QUERY_USERS } from '../../utils/queries';
 import { Table, thead, tr, tbody } from 'react-bootstrap'
 import { useQuery } from '@apollo/client'
-
+import './style.css'
 
 
 function Leaderboard() {
@@ -16,7 +16,7 @@ function Leaderboard() {
 
 
     return (
-        <div>
+        <div className='leaderboard'>
             <h1>Leaderboard</h1>
             <Table striped bordered hover>
                 <thead>

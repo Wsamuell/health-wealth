@@ -1,6 +1,23 @@
-.each-post {
+@import url('https://fonts.googleapis.com/css2?family=Sansita:ital@1&display=swap');
+.post {
     box-shadow: 10px 5px 20px grey;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px;
     margin: 30px;
+}
+.single-post {
+    display: flex;
+    flex-direction: column;
+}
+.heart, .chat {
+    width: 40px;
+    margin: 10px;
+}
+.activities {
+    font-family: 'Sansita', sans-serif; 
+
+}
+.recent-title{
+    font-size: 40px;
+
 }
