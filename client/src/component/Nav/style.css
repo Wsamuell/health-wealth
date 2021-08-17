@@ -1,20 +1,59 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Lobster&display=swap');
 
-.health-logo {
-    width: 150px;
-}
-.nav-bar {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #023047;
-}
-.nav-menu {
-    display: flex;
-    justify-content: space-evenly;
+header {
+    /* flex-wrap: wrap; */
+    /* align-content: center; */
+    padding: 10px;
+    background-image: url('../../assets/img/nav-bg.jpeg');
+    background-position: top;
+    background-size: contain;
     font-family: 'Lobster', cursive;
-    align-items: center;
+    text-decoration: none;
 }
-.login-spc {
-    padding-right: 100px;
+.mini-health {
+    text-decoration: none;
+    color: #ffb703;
+    text-shadow: 3px 3px #219ebc
+
+}
+.mini-span-h { 
+    color: #fb8500;
+    font-size: 70px;
+}
+.mini-wealth{
+    color: #fb8500;
+    text-shadow: 3px 3px #219ebc
+
+}
+.mini-span-w { 
+    color: #ffb703;
+    font-size: 70px;
+}
+.mini-span-plus { 
+    color: #8ecae6;
+    margin-top: 30px;
+    text-shadow: 3px 3px #219ebc
+}
+nav {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    justify-content: space-between;
+}
+
+.mini-logo {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+.home, .my-profile, .logout, .login-spc, .signup  {
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    padding: 7px;
+    
+}
+.home:hover, .my-profile:hover, .logout:hover, .login-spc:hover, .signup:hover {
+    background-color: yellow;
 }

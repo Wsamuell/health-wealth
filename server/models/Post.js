@@ -2,12 +2,12 @@ const { Schema, model} = require('mongoose')
 
 const postSchema = new Schema(
     {
-        text: {
+        textInfo: {
             type: String,
             required: true,
             maxlength: 150,
         },
-        user: {
+        userId: {
             type: Schema.Types.ObjectId,
             ref: 'User'
         },

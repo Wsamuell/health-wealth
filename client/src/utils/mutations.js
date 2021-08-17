@@ -98,3 +98,11 @@ mutation removePoints($pointValue: Int!, $userId: ID!) {
   }
 
 `;
+
+export const ADD_POST = gql`
+mutation addPost($textInfo: String!, $userId: ID!) {
+  addPost(textInfo: $textInfo, userId: $userId){
+    textInfo
+    userId
+  }
+}`
