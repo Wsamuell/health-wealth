@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 // where do we define 'name, image, price'? How are those all related to one another?
 
-function Shop() {
+function Shop(item) {
 
     return (
     <div className="card px-1 py-1">
@@ -21,6 +21,9 @@ function Shop() {
         <span>${price}</span>
       </div>
       <button onClick={purchase}>Purchase</button> */}
+      <p>image of SVG</p>
+      <p>price of SVG</p>
+      <button>Purchase</button>
     </div>
     )
 }
