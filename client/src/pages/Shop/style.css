@@ -12,3 +12,27 @@
     border-bottom: 1rem #219ebc solid;
     padding: 20px;
 }
+
+.badgeCard {
+    padding: 10px;
+    margin: 30px;
+}
+
+.price {
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.purchase-btn {
+    background-color:#219ebc;
+    color: white; 
+    text-shadow: 2px 2px grey;
+    border-radius: 5px;
+    border: none;
+    font-size: 22px;
+}
+
+.purchase-btn:hover {
+    background-color: #fb8500;
+}

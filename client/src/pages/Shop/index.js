@@ -52,16 +52,19 @@ function Shop(item) {
 
   return (
     <div className="shop-page">
-      <h2 className="shop-title">Shop coming soon!</h2>
-      <Card style={{ width: "18rem " }}>
-        {/* <Card.Img variant="top" src={require(`../../assets/user_icons/${badge.svgFile}`).default} alt={badge.icon}/> */}
+      <h2 className="shop-title"> Shop </h2>
+      {badge.map((badge, icon) => (
+      <Card style={{ width: "18rem " }} className="badgeCard">
+        <Card.Img className="badgeImg" variant="top" src={require(`../../assets/user_icons/${badge.svgFile}`).default} alt={badge.icon}/>
         <div>
-          <Card.Text>PRICE{badge.price}</Card.Text>
+          <Card.Text className="price">{badge.price} points</Card.Text>
         </div>
-        <button className="btn btn-primary ml-auto" onClick={purchase}>
+        <button className="purchase-btn" onClick={purchase}>
           Purchase
         </button>
       </Card>
+      )
+      )}
     </div>
   );
 }
