@@ -36,7 +36,9 @@ const resolvers = {
             return User.findOne(params)
         },
         allPosts: async () => {
-            await Post.find() 
+           const posts = await Post.find() 
+
+           return posts
         }
         
     },
