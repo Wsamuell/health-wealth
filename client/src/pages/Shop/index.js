@@ -1,7 +1,7 @@
 import React from "react";
 import { ADD_POINTS } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
-import { Card } from "react-bootstrap";
+import { Card, Container, Row} from "react-bootstrap";
 import "./style.css";
 
 function Shop(item) {
@@ -53,8 +53,10 @@ function Shop(item) {
   return (
     <div className="shop-page">
       <h2 className="shop-title"> Shop </h2>
+      <Container flex className="container">
+        <Row flex>
       {badge.map((badge, icon) => (
-      <Card style={{ width: "18rem " }} className="badgeCard">
+      <Card style={{ width: "10rem" }} className="badgeCard">
         <Card.Img className="badgeImg" variant="top" src={require(`../../assets/user_icons/${badge.svgFile}`).default} alt={badge.icon}/>
         <div>
           <Card.Text className="price">{badge.price} points</Card.Text>
@@ -65,6 +67,8 @@ function Shop(item) {
       </Card>
       )
       )}
+      </Row>
+      </Container>
     </div>
   );
 }
