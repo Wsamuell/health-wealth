@@ -1,6 +1,7 @@
 footer {
     display: flex;
     flex-direction: column;
+    align-content: flex-end;
 }
 .icon {
     width: 40px;
@@ -21,4 +22,10 @@ footer {
     display: flex;
     flex-direction: column;
     align-content: center;
+    padding: 30px;
+}
+@media (max-width: 697px) { 
+    .authors-footer{
+        justify-content: space-around;
+    }
 }

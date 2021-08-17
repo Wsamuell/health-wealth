@@ -94,8 +94,8 @@ function App() {
             </Route>
             <Route component={NoMatch} />
           </Switch>
-          <Footer />
         </div>
+          <Footer />
       </Router>
     </ApolloProvider >
   );
