@@ -54,7 +54,7 @@ query user($username:String!) {
 `;
 
  export const ALL_POST = gql`
- query allpost {
+ query allPosts {
   allPosts{
     _id
     textInfo
