@@ -54,11 +54,11 @@ nav {
     font-size: 30px;
     padding: 7px;
     color: white;
-    
+    text-shadow: 2px 2px #fb8500;   
 }
+
 .home:hover, .my-profile:hover, .logout:hover, .login-spc:hover, .signup:hover, .shop:hover {
-
     text-decoration: underline;
-    color: #fb8500;
-
+    text-shadow: 2px 2px #fb8500;
+    color: #ffb703;
 }
