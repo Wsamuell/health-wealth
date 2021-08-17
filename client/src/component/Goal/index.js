@@ -43,8 +43,12 @@ function Goal (goal) {
 
     return (
         <div className="goal-card">
-            <h1>Goal: {goal.goal.activity}</h1>
-            <h1>Hours or Servings: {goal.goal.hours}</h1>
+            <h5>Goal</h5>
+            <h6>{goal.goal.activity}</h6>
+            <br />
+            <br />
+            <h5>Hours or Servings</h5>
+            <h6>{goal.goal.hours}</h6>
             {!userParam && 
             <button type="submit" className="btn btn-success" onClick={handleGoalSubmit}>Task Complete</button>
             }

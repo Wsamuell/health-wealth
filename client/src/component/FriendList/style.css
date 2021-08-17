@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita:ital@1&display=swap');
+
+.friends-list {
+    border-top: 1rem #219ebc solid;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Sansita', sans-serif; 
+    font-size: 40px;
+    padding: 20px;
+}
+.no-friends {
+    display: flex;
+    font-size: 20px;
+}
+.friends {
+    margin-bottom: 10px;
+}
+.friends-link {
+    text-decoration: none;
+    color: grey;
+
+}
