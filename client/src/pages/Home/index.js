@@ -37,7 +37,7 @@ const Home = props => {
             // console.log(filterUsers[0])
             setSearchUser(filterUsers);
             setSearchUser('');
-            userLink = <div class="d-grid gap-2 col-6 mx-auto mb-4">
+            userLink = <div className="d-grid gap-2 col-6 mx-auto mb-4">
                 <p>User Found</p>
                 <Link className='searched-content btn btn-primary' to={`/profile/${filterUsers[0].username}`}>{filterUsers[0].username}</Link>
             </div>
