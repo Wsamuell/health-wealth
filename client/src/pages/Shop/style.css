@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita:ital@1&display=swap');
+
+.shop-page {
+    font-family: 'Sansita', sans-serif;
+}
+
+.shop-title {
+    display: flex;
+    justify-content: center;
+    color: #023047;
+    font-size: 40px;
+    border-bottom: 1rem #219ebc solid;
+    padding: 20px;
+}
+
+.container {
+    vertical-align: middle;
+    padding: 75px;
+}
+
+.badgeCard {
+    padding: 10px;
+    margin: 30px;
+}
+
+.price {
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.purchase-btn {
+    background-color:#219ebc;
+    color: white; 
+    text-shadow: 2px 2px grey;
+    border-radius: 5px;
+    border: none;
+    font-size: 22px;
+}
+
+.purchase-btn:hover {
+    background-color: #fb8500;
+}

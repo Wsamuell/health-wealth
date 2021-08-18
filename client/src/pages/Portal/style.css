@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Lobster&display=swap');
 .hero-img {    
     max-width: 100%;
-    height: auto;
-
 }
 .portal {
     display: flex;
@@ -12,9 +10,9 @@
 }
 .main {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
-    position:absolute;
-    
+    position: absolute;    
 }
 .logo {
     display: flex;
@@ -57,22 +55,44 @@
     opacity: 0.9;
     border-radius: 10px;
 }
-.sign-up-form {
-    display: none;
-}
-.sign-in-form {
-    background-color:#ffb7;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: grey;
-    
-}
-.create-btn {
-    border-top: black;
-}
 .info-text {
     color: white;
     font-family: 'Courgette', cursive;
     font-size: 50px;
     align-items: center;
 }
+#outside-sign-in {
+    display: none;
+}
+
+
+@media (max-width: 697px) { 
+    .app-name {
+        font-size: 50px ;
+    }
+    .span-h { 
+        font-size: 70px;
+    }
+    .span-w { 
+        font-size: 70px;
+    }
+    .info-text {
+        font-size: 30px;
+
+    }
+    .portal {
+        flex-direction: column;
+    
+    }
+    .main {
+        top: 2px;
+    }
+    #inside-sign-in {
+        display: none;
+    }
+    #outside-sign-in {
+        display: block;
+    }
+
+
+}    

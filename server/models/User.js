@@ -25,16 +25,20 @@ const userSchema = new Schema(
             minlength: 0,
             maxlength: false
         },
+        icon: {
+            type: String,
+            default: "defaulticon.svg"
+        },
         aboutMe: {
             type: String,
             minlength: 0,
             maxlength: 500
 
         },
-        regiments: [
+        regimens: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'Regiment'
+                ref: 'Goal'
             }
         ],
         friends: [

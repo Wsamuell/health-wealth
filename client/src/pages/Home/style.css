@@ -1,0 +1,32 @@
+.home-sec {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.search-form {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 30px;
+    width: 100%;
+}
+.searched-content {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+.no-searched-content {
+    text-decoration: none;
+    color: black;
+    padding: 20px;
+}
+
+.home-p-l {
+    border-top: 1rem #219ebc solid;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap-reverse;
+    /* background-color: grey; */
+}

@@ -1,0 +1,13 @@
+.goal-card {
+    border-radius: 5px;
+    box-shadow: 10px 5px 20px grey;
+    text-align: center;
+    font-weight: 100px;
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.goal-buttons {
+    display: flex;
+    flex-direction: column;
+}

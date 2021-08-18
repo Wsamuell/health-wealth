@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:prod": "cd server && npm start",
-    "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
-    "install": "cd server && npm i && cd ../client && npm i"
+    "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm  run start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "webpack": "webpack --watch",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,8 @@
   },
   "homepage": "https://github.com/EEzycade/project-three#readme",
   "dependencies": {
-    "concurrently": "^6.2.1"
+    "@apollo/client": "^3.4.7",
+    "concurrently": "^6.2.1",
+    "jquery": "^3.6.0"
   }
 }

@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Lobster&display=swap');
+
+header {
+    /* flex-wrap: wrap; */
+    /* align-content: center; */
+    padding: 10px;
+    background-image: url('../../assets/img/nav-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Lobster', cursive;
+    text-decoration: none;
+}
+.mini-health {
+    text-decoration: none;
+    color: #ffb703;
+    text-shadow: 3px 3px #219ebc
+
+}
+.mini-span-h { 
+    color: #fb8500;
+    font-size: 90px;
+}
+.mini-wealth{
+    color: #fb8500;
+    text-shadow: 3px 3px #219ebc
+
+}
+.mini-span-w { 
+    color: #ffb703;
+    font-size: 90px;
+}
+.mini-span-plus { 
+    color: #8ecae6;
+    margin-top: 30px;
+    text-shadow: 3px 3px #219ebc
+}
+nav {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.mini-logo {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+.home, .my-profile, .logout, .login-spc, .signup, .shop  {
+    text-decoration: none;
+    font-size: 30px;
+    padding: 7px;
+    color: white;
+    text-shadow: 2px 2px #fb8500;   
+}
+
+.home:hover, .my-profile:hover, .logout:hover, .login-spc:hover, .signup:hover, .shop:hover {
+    text-decoration: underline;
+    text-shadow: 2px 2px #fb8500;
+    color: #ffb703;
+}
