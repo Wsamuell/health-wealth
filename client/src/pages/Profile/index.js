@@ -120,7 +120,7 @@ function Profile(props) {
             </div>
             <div id="user-div" className="">
                 <h4>Current Badge</h4>
-                <img id="user-icon" src={require('../../assets/user_icons/defaulticon.svg').default} height='150px' width='150px'></img>
+                <img id="user-icon" src={require(`../../assets/user_icons/${user.icon}`).default} height='150px' width='150px'></img>
                 {/* {!userParam &&
                     <button className='btn btn-outline-secondary'>Change Icon</button>
                 } */}

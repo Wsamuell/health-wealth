@@ -113,3 +113,11 @@ mutation changeAbout($aboutMe: String!){
       aboutMe
     }
 }`
+
+export const CHANGE_ICON = gql`
+mutation changeIcon($iconName: String!) {
+  changeIcon(iconName: $iconName){
+    username
+    icon
+  }
+}`
