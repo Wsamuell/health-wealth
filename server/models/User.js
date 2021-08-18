@@ -27,6 +27,7 @@ const userSchema = new Schema(
         },
         icon: {
             type: String,
+            default: "defaulticon.svg"
         },
         aboutMe: {
             type: String,
