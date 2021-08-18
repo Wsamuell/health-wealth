@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 export const GET_ME = gql`
 query me{
     me {
+      aboutMe
       username
       email
       _id
@@ -59,9 +60,9 @@ query user($username:String!) {
     _id
     textInfo
     userId
-    likes
     reactions {
       commentText
     }
   }
-}`;
+}
+`;
