@@ -7,7 +7,7 @@ import { GET_ME } from '../../utils/queries';
 import context from 'react-bootstrap/esm/AccordionContext';
 import './style.css'
 
-function Goal (goal) {
+function Goal(goal) {
     // query all goals for a user here
 
     // i included the button that will trigger the function to create a post
@@ -18,9 +18,9 @@ function Goal (goal) {
     // fields you need.
     const { username: userParam } = useParams();
     const { loading, data } = useQuery(GET_ME);
-    const [addPoints, {error}] = useMutation(ADD_POINTS);
-    const [removePost, {err}] = useMutation(REMOVE_GOAL);
-    const [addPost, {ish}] = useMutation(ADD_POST)
+    const [addPoints, { error }] = useMutation(ADD_POINTS);
+    const [removePost, { err }] = useMutation(REMOVE_GOAL);
+    const [addPost, { ish }] = useMutation(ADD_POST)
     const user = data?.me || [];
 
     const handleGoalDelete = async (event) => {
@@ -28,7 +28,7 @@ function Goal (goal) {
 
         try {
             await removePost({
-                variables: {goalId: goal.goal._id, userId: user._id}
+                variables: { goalId: goal.goal._id, userId: user._id }
             })
         } catch (err) {
             console.error(err)
@@ -40,18 +40,18 @@ function Goal (goal) {
 
         try {
             await addPoints({
-                variables: {userId: user._id, pointValue: 10}
+                variables: { userId: user._id, pointValue: 10 }
             })
             await removePost({
-                variables: {goalId: goal.goal._id, userId: user._id}
+                variables: { goalId: goal.goal._id, userId: user._id }
             })
             await addPost({
-                variables: {textInfo: `${user.username} has completed their ${goal.goal.activity}`, userId: user._id}
+                variables: { textInfo: `${user.username} has completed their ${goal.goal.activity}`, userId: user._id }
             })
         } catch (err) {
             console.error(err)
         }
-    } 
+    }
 
     return (
         <div className="goal-card">
@@ -61,9 +61,13 @@ function Goal (goal) {
             <br />
             <h5>Hours or Servings</h5>
             <h6>{goal.goal.hours}</h6>
-            {!userParam && 
-            <button type="submit" className="btn btn-success" onClick={handleGoalSubmit}>Task Complete</button>
-            }<button onClick={handleGoalDelete} className="btn btn-success">Delete</button>
+            {!userParam &&
+                <div className='goal-buttons'>
+                    <button type="submit" className="btn btn-success" onClick={handleGoalSubmit}>Task Complete</button>
+                    <br/>
+                    <button onClick={handleGoalDelete} className="btn btn-danger">Delete</button>
+                </div>
+            }
         </div>
     )
 }
