@@ -48,44 +48,44 @@ function App() {
             <Nav />
           )}
           <Switch>
-            <Route exact path="/#/">
+            <Route exact path="/">
               {Auth.loggedIn() ? (
                 <Home />
               ) : (
                 <Portal />
               )}
             </Route>
-            <Route exact path="/#/home">
+            <Route exact path="/home">
               {Auth.loggedIn() ? (
                 <Home />
               ) : (
                 <Portal />
               )}
             </Route>
-            <Route exact path="/#/portal">
+            <Route exact path="/portal">
               {Auth.loggedIn() ? (
                 <Home />
               ) : (
                 <Portal />
               )}
             </Route>
-            <Route exact path="/#/login" component={Portal} />
-            <Route exact path="/#/signup" component={Portal} />
-            <Route exact path="/#/shop" >
+            <Route exact path="/login" component={Portal} />
+            <Route exact path="/signup" component={Portal} />
+            <Route exact path="/shop" >
               {Auth.loggedIn() ? (
                 <Shop />
               ) : (
                 <Shop />
               )}
             </Route>
-            <Route exact path="/#/profile">
+            <Route exact path="/profile">
               {Auth.loggedIn() ? (
                 <Profile />
               ) : (
                 <Portal />
               )}
             </Route>
-            <Route exact path="/#/profile/:username?">
+            <Route exact path="/profile/:username?">
               {Auth.loggedIn() ? (
                 <Profile />
               ) : (
