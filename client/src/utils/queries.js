@@ -13,6 +13,9 @@ query me{
         hours
         _id
       }
+      friends {
+        username
+      }
     } 
 }
 `;
