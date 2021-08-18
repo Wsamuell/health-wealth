@@ -28,7 +28,7 @@ function Profile(props) {
     const user = data?.me || data?.user || [];
 
 
-    const [aboutMeSubmit, setMeSubmit] = useState({aboutMe: ''})
+    const [aboutMeSubmit, setMeSubmit] = useState({ aboutMe: '' })
     const [showModal2, setShowModal2] = useState(false)
     const handleClose2 = () => setShowModal2(false)
     const handleShow2 = () => setShowModal2(true)
@@ -38,8 +38,8 @@ function Profile(props) {
     const handleShow = () => setShowModal(true);
 
     const handleInputChange2 = (event) => {
-        const {name, value} = event.target
-        setMeSubmit({...aboutMeSubmit, [name]: value });
+        const { name, value } = event.target
+        setMeSubmit({ ...aboutMeSubmit, [name]: value });
     }
 
     const handleInputChange = (event) => {
@@ -62,12 +62,12 @@ function Profile(props) {
         );
     }
 
-    const handleAboutMeSubmit = async (event) => {  
+    const handleAboutMeSubmit = async (event) => {
         event.preventDefault();
 
         try {
             await changeAbout({
-                variables:{...aboutMeSubmit} 
+                variables: { ...aboutMeSubmit }
             })
         } catch (err) {
             console.error(err)
@@ -135,8 +135,9 @@ function Profile(props) {
                     }
                     <Modal show={showModal2} onHide={() => setShowModal2(false)}>
                         <form onSubmit={handleAboutMeSubmit} className="aboutMe-modal">
-                        <input placeholder="Tell Visitors About Yourself" name="aboutMe" onChange={handleInputChange2} value={aboutMeSubmit.about}></input>
-                        <button type="submit" onClick={handleClose2}>Submit</button>
+                            <p>About Me</p>
+                            <textarea className='about-input' placeholder="Tell Us About Yourself" name="aboutMe" onChange={handleInputChange2} value={aboutMeSubmit.about}></textarea>
+                            <button className='about-submit' type="submit" onClick={handleClose2}>Submit</button>
                         </form>
                     </Modal>
                 </div>
