@@ -14,10 +14,10 @@ import Shop from './pages/Shop';
 
 const httpLink = createHttpLink({
   // for local
-  uri: 'http://localhost:3001/graphql'
+//  uri: 'http://localhost:3001/graphql'
 
   // for production
-  // uri: '/graphql'
+  uri: '/graphql'
 
 });
 
