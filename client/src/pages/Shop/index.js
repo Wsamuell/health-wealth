@@ -56,14 +56,12 @@ function Shop(item) {
   return (
     <div className="shop-page">
       <h2 className="shop-title"> Shop </h2>
-      <Container flex className="container">
-        <Row flex>
+        <div className='shop-items'>
           {badge.map((badge) => (
             <Icon badge={badge}></Icon>
           )
           )}
-        </Row>
-      </Container>
+        </div>
     </div>
   );
 }
