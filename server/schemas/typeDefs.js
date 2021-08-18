@@ -7,6 +7,7 @@ type User {
     email: String
     password: String
     points: Int
+    icon: String
     aboutMe: String
     regimens: [Goal]
     post: [Post]
