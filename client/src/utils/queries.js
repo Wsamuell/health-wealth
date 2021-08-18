@@ -7,6 +7,8 @@ query me{
       username
       email
       _id
+      points
+      icon
       regimens {
         day
         activity
@@ -15,6 +17,7 @@ query me{
       }
       friends {
         username
+        _id
       }
     } 
 }
@@ -27,6 +30,7 @@ query users{
       email
       _id
       points
+      icon
       regimens {
         activity
         hours
@@ -46,9 +50,12 @@ query user($username:String!) {
       username
       email
       _id
+      icon
       regimens {
         day 
         activity
+        hours
+        _id
       }
       friends {
         username
