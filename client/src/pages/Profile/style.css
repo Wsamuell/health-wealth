@@ -50,9 +50,24 @@
     background-color: gray;
     border-radius: 5px;
 }
-/* #regiment-div {
-    border-top: 1rem #219ebc solid;
-    background-color: #062337;
+
+.aboutMe-modal {
+    padding: 25px;
+    border-radius: 10px;
+    font-family: 'Sansita', sans-serif; 
+}
+.about-input{
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border-color: gray;
+    
+}
+.about-submit {
+    border-radius: 5px;
+    background-color: grey;
+    padding: 5px;
     color: white;
-    border-radius: 2%;
-}  */
+}
