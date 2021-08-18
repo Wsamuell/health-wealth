@@ -124,11 +124,13 @@ function Profile(props) {
                 {/* {!userParam &&
                     <button className='btn btn-outline-secondary'>Change Icon</button>
                 } */}
-                <p id="point-count">{user.points} Total Points</p>
+                {!userParam && (
+                    <p id="point-count">{user.points} Total Points</p>
+                )}
             </div>
             <div className="regimen-col">
                 <div id="about-me">
-                    <h2>About Me</h2>
+                    <h2>Bio</h2>
                     <p className='about-text'>{user.aboutMe}</p>
                     {!userParam &&
                         <button type="button" className='form-control btn btn-outline-info open-modal' onClick={handleShow2}>Edit</button>
