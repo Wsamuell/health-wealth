@@ -79,7 +79,7 @@ function SignUp() {
                     >Sign Up</button>
 
                 </form>
-                {error && <div> Something Went Wrong </div>}
+                {error && <div className='wrong-error'> Something Went Wrong </div>}
             </div>
     )
 }
