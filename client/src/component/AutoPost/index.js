@@ -13,7 +13,7 @@ function AutoPost() {
     const [addPoints] = useMutation(ADD_POINTS);
     const userData = data?.allPosts || []
 
-    console.log(...userData)
+    // console.log(...userData)
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
