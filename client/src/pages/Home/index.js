@@ -39,7 +39,7 @@ const Home = props => {
             setSearchUser('');
             userLink = <div class="d-grid gap-2 col-6 mx-auto mb-4">
                 <p>User Found</p>
-                <Link className='searched-content btn btn-outline-secondary' to={`/profile/${filterUsers[0].username}`}>{filterUsers[0].username}</Link>
+                <Link className='searched-content btn btn-primary' to={`/profile/${filterUsers[0].username}`}>{filterUsers[0].username}</Link>
             </div>
 
         } catch (err) {
