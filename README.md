@@ -4,7 +4,7 @@
 This application is meant to be a community of well-being that allows users to earn points by creating and sharing healthy habits and goals. 
 
 ![screenshot](/client/src/assets/img/screenshot.JPG)
-[Heroku]
+[Heroku](https://healthwealth.herokuapp.com/)
 
 ## Table of Contents
 * [Installation](#installation)

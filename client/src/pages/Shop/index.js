@@ -1,8 +1,4 @@
 import React from "react";
-import { ADD_POINTS } from "../../utils/mutations";
-import { useMutation } from "@apollo/client";
-import { Badge, Card, Container, Row } from "react-bootstrap";
-import { CHANGE_ICON } from "../../utils/mutations";
 import Icon from "../../component/Icon";
 import "./style.css";
 

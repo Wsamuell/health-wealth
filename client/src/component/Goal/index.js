@@ -8,14 +8,6 @@ import context from 'react-bootstrap/esm/AccordionContext';
 import './style.css'
 
 function Goal(goal) {
-    // query all goals for a user here
-
-    // i included the button that will trigger the function to create a post
-
-    // I wrote hours or servings becuase a goal might be "do yoga" or "eat vegetables". In fact, we might be able
-    // to get rid of this field entirely. I'm thinking that the user would probably just want to write something like
-    // "eat five servings of veggies" or "work out for one hour". So in that case, activity and day are the only 
-    // fields you need.
     const { username: userParam } = useParams();
     const { loading, data } = useQuery(GET_ME);
     const [addPoints, { error }] = useMutation(ADD_POINTS);

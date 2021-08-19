@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Post from '../Post'
-import { ALL_POST, QUERY_USERS, GET_ME } from '../../utils/queries';
+import { ALL_POST } from '../../utils/queries';
 import { useQuery, useMutation } from '@apollo/client';
 import { ADD_POINTS } from '../../utils/mutations';
-import Goal from '../Goal';
 import './style.css'
 
 
@@ -14,15 +13,11 @@ function AutoPost() {
     const [addPoints] = useMutation(ADD_POINTS);
     const userData = data?.allPosts || []
 
-    // console.log(...userData)
-
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setLikePoints({ ...likePoints, [name]: value });
     };
 
-
-    console.log()
    
     return (
         <div className='activities'>
@@ -33,10 +28,7 @@ function AutoPost() {
                 ))}
 
             </div>
-
-
         </div>
-
     )
 }
 
