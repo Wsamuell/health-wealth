@@ -34,7 +34,6 @@ const Home = props => {
                     return users
                 }
             })
-            // console.log(filterUsers[0])
             setSearchUser(filterUsers);
             setSearchUser('');
             userLink = <div className="d-grid gap-2 col-6 mx-auto mb-4">
@@ -44,11 +43,8 @@ const Home = props => {
 
         } catch (err) {
             userLink = <div className='no-searched-content'>No User found</div>
-            // console.log('no user found');
         }
     }
-
-
 
 
     return (

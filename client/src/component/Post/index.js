@@ -30,7 +30,6 @@ function Post({ post }) {
     return (
         <div key={post._id} className='single-post'>
             <div >{post.textInfo}</div>
-            {/* <div name='userId' onChange={handleInputChange}>{user.userId}</div> */}
             <a onClick={handleLikeSubmit}>
                 <img typeof='button' src={require('../../assets/img/heart.png').default} className='heart' />
             </a>

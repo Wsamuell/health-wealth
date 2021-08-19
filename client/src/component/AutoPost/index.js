@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Post from '../Post'
-import { ALL_POST, QUERY_USERS, GET_ME } from '../../utils/queries';
+import { ALL_POST } from '../../utils/queries';
 import { useQuery, useMutation } from '@apollo/client';
 import { ADD_POINTS } from '../../utils/mutations';
-import Goal from '../Goal';
 import './style.css'
 
 
