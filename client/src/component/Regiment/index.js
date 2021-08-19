@@ -2,8 +2,6 @@ import React from 'react';
 import Goal from '../Goal';
 import './style.css'
 
-
-
 const Regiment = ({ regimens }) => {
     console.log(regimens)
     if (!regimens) {
@@ -73,7 +71,6 @@ const Regiment = ({ regimens }) => {
                     })}
                 </div>
             </div>
-
         </div>
     )
 }

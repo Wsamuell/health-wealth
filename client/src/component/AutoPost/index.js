@@ -1,38 +1,34 @@
 import React, { useState } from 'react';
+import Post from '../Post'
 import { ALL_POST } from '../../utils/queries';
-import { useQuery } from '@apollo/client';
-import Goal from '../Goal';
+import { useQuery, useMutation } from '@apollo/client';
+import { ADD_POINTS } from '../../utils/mutations';
 import './style.css'
 
+
 function AutoPost() {
-
     const { data } = useQuery(ALL_POST)
+    const [likePoints, setLikePoints] = useState({ userId:'' });
 
+    const [addPoints] = useMutation(ADD_POINTS);
     const userData = data?.allPosts || []
 
-    console.log(...userData)
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setLikePoints({ ...likePoints, [name]: value });
+    };
 
-    const [count, setCount] = useState(0);
-
-
+   
     return (
         <div className='activities'>
             <p className='recent-title'>Recent activities around the World</p>
             <div className='post'>
                 {userData.map(user => (
-                    <div className='single-post'>
-                        <div>{user.textInfo}</div>
-                            <a onClick={() => setCount(count + 1)}> {count}
-                                <img typeof='button' src={require('../../assets/img/heart.png').default} className='heart' />
-                            </a>
-                    </div>
+                    <Post post={user}></Post>
                 ))}
 
             </div>
-
-
         </div>
-
     )
 }
 

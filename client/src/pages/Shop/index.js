@@ -1,11 +1,10 @@
 import React from "react";
-import { ADD_POINTS } from "../../utils/mutations";
-import { useMutation } from "@apollo/client";
-import { Card, Container, Row} from "react-bootstrap";
+import Icon from "../../component/Icon";
 import "./style.css";
 
 function Shop(item) {
-  const [purchase] = useMutation(ADD_POINTS);
+ 
+
 
   const badge = [
     {
@@ -53,22 +52,12 @@ function Shop(item) {
   return (
     <div className="shop-page">
       <h2 className="shop-title"> Shop </h2>
-      <Container flex className="container">
-        <Row flex>
-      {badge.map((badge, icon) => (
-      <Card style={{ width: "10rem" }} className="badgeCard">
-        <Card.Img className="badgeImg" variant="top" src={require(`../../assets/user_icons/${badge.svgFile}`).default} alt={badge.icon}/>
-        <div>
-          <Card.Text className="price">{badge.price} points</Card.Text>
+        <div className='shop-items'>
+          {badge.map((badge) => (
+            <Icon badge={badge}></Icon>
+          )
+          )}
         </div>
-        <button className="purchase-btn" onClick={purchase}>
-          Purchase
-        </button>
-      </Card>
-      )
-      )}
-      </Row>
-      </Container>
     </div>
   );
 }

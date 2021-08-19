@@ -100,7 +100,6 @@ function Profile(props) {
             await removeFriend({
                 variables: { id: user._id }
             });
-            // console.log('following')
         } catch (e) {
             console.error(e);
         }
@@ -120,15 +119,14 @@ function Profile(props) {
             </div>
             <div id="user-div" className="">
                 <h4>Current Badge</h4>
-                <img id="user-icon" src={require('../../assets/user_icons/defaulticon.svg').default} height='150px' width='150px'></img>
-                {/* {!userParam &&
-                    <button className='btn btn-outline-secondary'>Change Icon</button>
-                } */}
-                <p id="point-count">{user.points} Total Points</p>
+                <img id="user-icon" src={require(`../../assets/user_icons/${user.icon}`).default} height='150px' width='150px'></img>
+                {!userParam && (
+                    <p id="point-count">{user.points} Total Points</p>
+                )}
             </div>
             <div className="regimen-col">
                 <div id="about-me">
-                    <h2>About Me</h2>
+                    <h2>Bio</h2>
                     <p className='about-text'>{user.aboutMe}</p>
                     {!userParam &&
                         <button type="button" className='form-control btn btn-outline-info open-modal' onClick={handleShow2}>Edit</button>

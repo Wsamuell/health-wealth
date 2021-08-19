@@ -152,6 +152,16 @@ const resolvers = {
                     )
                 return updatedUser
             }
+        },
+        changeIcon: async (parent, {iconName}, context) => {
+            if (context.user) {
+                const updatedUser = User.findByIdAndUpdate(
+                    {_id: context.user._id},
+                    {$set: {icon: iconName}},
+                    {new: true}
+                )
+                return updatedUser
+            }
         }
         
     }
