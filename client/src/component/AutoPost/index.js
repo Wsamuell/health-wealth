@@ -14,15 +14,11 @@ function AutoPost() {
     const [addPoints] = useMutation(ADD_POINTS);
     const userData = data?.allPosts || []
 
-    // console.log(...userData)
-
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setLikePoints({ ...likePoints, [name]: value });
     };
 
-
-    console.log()
    
     return (
         <div className='activities'>
@@ -33,10 +29,7 @@ function AutoPost() {
                 ))}
 
             </div>
-
-
         </div>
-
     )
 }
 
